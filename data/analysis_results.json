@@ -1,694 +1,529 @@
 {
-  "timestamp": "2026-04-28T20:57:41.276695",
+  "timestamp": "2026-09-22T16:07:10.957664",
   "local_originality_score": 100.0,
-  "global_originality_score": 70.8,
+  "global_originality_score": 57.1,
   "local_plagiarism_pct": 0.0,
-  "global_plagiarism_pct": 29.2,
+  "global_plagiarism_pct": 42.9,
   "local_max_similarity": 0.0,
   "local_avg_similarity": 0.0,
   "local_similar_files": [
     {
       "filename": "research_notes.md",
-      "source_file": "E:\\Code\\PBL 2 Indolance\\sample_files\\research_notes.md",
+      "source_file": "C:\\Users\\japika\\indolance\\sample_files\\research_notes.md",
       "similarity": 0.0,
       "status": "Original",
       "snippet": "Sample Research Notes IoT Edge Computing Security Author Research Team Date 2025-03-15 Topic Secure Edge Computing for IoT Networks Abstract This research explores the intersection of edge computing a"
     },
     {
       "filename": "sample_code.py",
-      "source_file": "E:\\Code\\PBL 2 Indolance\\sample_files\\sample_code.py",
+      "source_file": "C:\\Users\\japika\\indolance\\sample_files\\sample_code.py",
       "similarity": 0.0,
       "status": "Original",
       "snippet": "Sample Research Project IoT Network Security Monitor A proof-of-concept embedded system that uses an ATECC608A cryptographic chip for secure key storage combined with PCAP-based network traffic analys"
     }
   ],
   "local_file_count": 2,
-  "global_max_similarity": 0.4751,
-  "global_avg_similarity": 0.0327,
+  "global_max_similarity": 0.552,
+  "global_avg_similarity": 0.0559,
   "global_similar_items": [
     {
-      "title": "An association between accessing lecture recordings, but not lecture attendance, and overall marks for optometry students in a pharmacology course",
-      "snippet": "Abstract\n        Background: Most studies, in the absence and presence of lecture recordings, have shown that there is an association between lecture attendance and academic performance for students of the biological sciences, but it is not known whether this occurs when lecture attendance is low. The effect of accessing lecture recordings on academic outcomes is not clear. The aims were (i) to determine any association between lecture attendance and academic outcomes for students who had access",
-      "url": "https://doi.org/10.21203/rs.3.rs-118346/v1",
+      "title": "image recognition",
+      "snippet": "",
+      "url": "https://doi.org/10.1007/springerreference_16061",
       "year": null,
       "citations": 0,
       "source": "crossref",
       "source_label": "Published Work",
-      "query": "I am building an app for MITWPU students where they can track their marks lecture attendance and res",
+      "query": "image recognition",
       "keywords": [
-        "association",
-        "accessing",
-        "lecture",
-        "recordings",
-        "lecture",
-        "attendance",
-        "overall",
-        "marks",
-        "optometry",
-        "students",
-        "pharmacology",
-        "course",
-        "abstract",
-        "background",
-        "studies"
+        "image",
+        "recognition"
       ],
-      "scraped_at": "2026-04-28T20:55:47.513633",
-      "similarity": 0.4751,
-      "status": "Similar Work Found"
+      "scraped_at": "2026-09-22T16:06:51.854446",
+      "similarity": 0.552,
+      "status": "Already Exists"
     },
     {
-      "title": "Can Australian Universities Take Measures to Increase the Lecture Attendance of Marketing Students?",
-      "snippet": " Lectures are a central element of traditional university learning, but Australian lecturers increasingly face very low levels of lecture attendance. A significant amount of research exists that investigates the drivers of lecture attendance. However, those studies typically study single factors in an isolated manner, thus overestimating the importance of individual factors. This study contributes to the understanding of lecture attendance (and nonattendance) by including a range of factors that",
-      "url": "https://doi.org/10.1177/0273475309345202",
-      "year": 2009,
-      "citations": 28,
+      "title": "Image Recognition and Analysis: Results of Belarusian Scientists",
+      "snippet": "",
+      "url": "https://doi.org/10.1134/s105466182304003x",
+      "year": 2023,
+      "citations": 0,
       "source": "crossref",
       "source_label": "Published Work",
-      "query": "I am building an app for MITWPU students where they can track their marks lecture attendance and res",
+      "query": "image recognition",
       "keywords": [
-        "australian",
-        "universities",
-        "measures",
-        "increase",
-        "lecture",
-        "attendance",
-        "marketing",
-        "students",
-        "lectures",
-        "central",
-        "element",
-        "traditional",
-        "university",
-        "learning",
-        "australian"
+        "image",
+        "recognition",
+        "belarusian",
+        "scientists"
       ],
-      "scraped_at": "2026-04-28T20:55:47.513807",
-      "similarity": 0.4451,
-      "status": "Similar Work Found"
+      "scraped_at": "2026-09-22T16:06:51.854446",
+      "similarity": 0.5212,
+      "status": "Already Exists"
     },
     {
-      "title": "Donkie/Spoolman",
-      "snippet": "Keep track of your inventory of 3D-printer filament spools.",
-      "url": "https://github.com/Donkie/Spoolman",
-      "year": 2023,
-      "stars": 2390,
-      "forks": 240,
+      "title": "ThoughtfulDev/EagleEye",
+      "snippet": "Stalk your Friends. Find their Instagram, FB and Twitter Profiles using Image Recognition and Reverse Image Search.",
+      "url": "https://github.com/ThoughtfulDev/EagleEye",
+      "year": 2018,
+      "stars": 5222,
+      "forks": 680,
       "language": "Python",
       "topics": [
-        "3d-printing",
-        "database",
-        "inventory",
-        "service"
+        "face-recognition",
+        "machine-learning",
+        "python3",
+        "social-media",
+        "stalking"
       ],
       "source": "github",
       "source_label": "GitHub Repository",
-      "query": "tracker database",
+      "query": "image recognition",
       "keywords": [
-        "donkie",
-        "spoolman",
-        "track",
-        "inventory",
-        "d-printer",
-        "filament",
-        "spools",
+        "thoughtfuldev",
+        "eagleeye",
+        "stalk",
+        "friends",
+        "instagram",
+        "twitter",
+        "profiles",
+        "image",
+        "recognition",
+        "reverse",
+        "image",
+        "search",
         "python",
-        "d-printing",
-        "database",
-        "inventory",
-        "service"
+        "face-recognition",
+        "machine-learning"
       ],
-      "scraped_at": "2026-04-28T20:57:33.042772",
-      "similarity": 0.2695,
-      "status": "Similar Work Found"
+      "scraped_at": "2026-09-22T16:06:56.862500",
+      "similarity": 0.5009,
+      "status": "Already Exists"
     },
     {
-      "title": "Building a Student Attendance Tracker - Medium",
-      "snippet": "Hello everyone! I'm Mathew Joby, a Computer Science and Engineeringstudentfrom Muthoot Institute of technology and science . In this blog post, I want to share a little bit about my journey of ...",
-      "url": "https://medium.com/@24cs016/building-a-student-attendance-tracker-my-first-step-into-real-world-problem-solving-da42a74ec53f",
-      "year": null,
-      "source": "web",
-      "source_label": "Web Result",
-      "query": "I am building an app for MITWPU students where they can track their marks lecture attendance and res",
-      "keywords": [
-        "building",
-        "student",
-        "attendance",
-        "tracker",
-        "medium",
-        "hello",
-        "everyone",
-        "mathew",
-        "joby",
-        "computer",
-        "science",
-        "engineeringstudentfrom",
-        "muthoot",
-        "institute",
-        "technology"
-      ],
-      "scraped_at": "2026-04-28T20:55:56.158282",
-      "similarity": 0.264,
-      "status": "Similar Work Found"
-    },
-    {
-      "title": "Behavioural science can help make the UK\u2019s track and trace app a success \u2013 here\u2019s how",
+      "title": "Retraction Note to: Translation analysis of English address image recognition based on image recognition",
       "snippet": "",
-      "url": "https://doi.org/10.64628/ab.n4ks36mkt",
+      "url": "https://doi.org/10.1186/s13640-022-00595-5",
       "year": null,
       "citations": 0,
       "source": "crossref",
       "source_label": "Published Work",
-      "query": "I am building an app for MITWPU students where they can track their marks lecture attendance and res",
+      "query": "image recognition",
       "keywords": [
-        "behavioural",
-        "science",
-        "track",
-        "trace",
-        "app",
-        "success"
+        "retraction",
+        "note",
+        "translation",
+        "english",
+        "address",
+        "image",
+        "recognition",
+        "image",
+        "recognition"
       ],
-      "scraped_at": "2026-04-28T20:55:47.513676",
-      "similarity": 0.2562,
+      "scraped_at": "2026-09-22T16:06:51.854446",
+      "similarity": 0.4811,
       "status": "Similar Work Found"
     },
     {
-      "title": "suhanigaikwad71-cpu/attaendance",
+      "title": "The Link Between Image Segmentation and Image Recognition",
       "snippet": "",
-      "url": "https://github.com/suhanigaikwad71-cpu/attaendance",
-      "year": 2026,
+      "url": "https://doi.org/10.15760/etd.199",
+      "year": null,
+      "citations": 0,
+      "source": "crossref",
+      "source_label": "Published Work",
+      "query": "image recognition",
+      "keywords": [
+        "link",
+        "image",
+        "segmentation",
+        "image",
+        "recognition"
+      ],
+      "scraped_at": "2026-09-22T16:06:51.854446",
+      "similarity": 0.4721,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "\u00e2\u0080\u0098You Can Be Who You Want to Be, Do What You Want to Do\u00e2\u0080\u0099",
+      "snippet": "",
+      "url": "https://doi.org/10.1057/9781137022400.0010",
+      "year": null,
+      "citations": 0,
+      "source": "crossref",
+      "source_label": "Published Work",
+      "query": "i want to create a medicinal plant recognition and show what diseases the plants can cure. I want to",
+      "keywords": [],
+      "scraped_at": "2026-09-22T16:05:36.988193",
+      "similarity": 0.3621,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "What Flies Want Is Not",
+      "snippet": "",
+      "url": "https://doi.org/10.2307/j.ctv2bndf07.21",
+      "year": 2022,
+      "citations": 0,
+      "source": "crossref",
+      "source_label": "Published Work",
+      "query": "i want to create a medicinal plant recognition and show what diseases the plants can cure. I want to",
+      "keywords": [
+        "flies"
+      ],
+      "scraped_at": "2026-09-22T16:05:36.988193",
+      "similarity": 0.3621,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "Show them what you want them to hear",
+      "snippet": "",
+      "url": "https://doi.org/10.1109/ipcc.1991.172819",
+      "year": null,
+      "citations": 0,
+      "source": "crossref",
+      "source_label": "Published Work",
+      "query": "i want to create a medicinal plant recognition and show what diseases the plants can cure. I want to",
+      "keywords": [
+        "hear"
+      ],
+      "scraped_at": "2026-09-22T16:05:36.988193",
+      "similarity": 0.3621,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "jetpacapp/DeepBeliefSDK",
+      "snippet": "The SDK for Jetpac's iOS Deep Belief image recognition framework",
+      "url": "https://github.com/jetpacapp/DeepBeliefSDK",
+      "year": 2014,
+      "stars": 2851,
+      "forks": 424,
+      "language": "JavaScript",
+      "topics": [],
+      "source": "github",
+      "source_label": "GitHub Repository",
+      "query": "image recognition",
+      "keywords": [
+        "jetpacapp",
+        "deepbeliefsdk",
+        "sdk",
+        "jetpac",
+        "ios",
+        "deep",
+        "belief",
+        "image",
+        "recognition",
+        "framework",
+        "javascript"
+      ],
+      "scraped_at": "2026-09-22T16:06:56.862500",
+      "similarity": 0.3467,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "Image Kernel for Recognition",
+      "snippet": "",
+      "url": "https://doi.org/10.5772/7545",
+      "year": null,
+      "citations": 1,
+      "source": "crossref",
+      "source_label": "Published Work",
+      "query": "image recognition",
+      "keywords": [
+        "image",
+        "kernel",
+        "recognition"
+      ],
+      "scraped_at": "2026-09-22T16:06:51.854446",
+      "similarity": 0.3338,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "We do not want to \u201ccure plant blindness\u201d we want to grow plant love",
+      "snippet": "",
+      "url": "https://doi.org/10.1002/ppp3.10062",
+      "year": 2019,
+      "citations": 41,
+      "source": "crossref",
+      "source_label": "Published Work",
+      "query": "i want to create a medicinal plant recognition and show what diseases the plants can cure. I want to",
+      "keywords": [
+        "cure",
+        "plant",
+        "blindness",
+        "grow",
+        "plant",
+        "love"
+      ],
+      "scraped_at": "2026-09-22T16:05:36.988193",
+      "similarity": 0.3286,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "What Do Plants Want?",
+      "snippet": "",
+      "url": "https://doi.org/10.1057/978-1-137-57063-5_10",
+      "year": 2016,
+      "citations": 5,
+      "source": "crossref",
+      "source_label": "Published Work",
+      "query": "i want to create a medicinal plant recognition and show what diseases the plants can cure. I want to",
+      "keywords": [
+        "plants"
+      ],
+      "scraped_at": "2026-09-22T16:05:36.988193",
+      "similarity": 0.3252,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "Introduction to Medical Image Recognition, Segmentation, and Parsing",
+      "snippet": "",
+      "url": "https://doi.org/10.1016/b978-0-12-802581-9.00001-9",
+      "year": 2016,
+      "citations": 13,
+      "source": "crossref",
+      "source_label": "Published Work",
+      "query": "image recognition",
+      "keywords": [
+        "introduction",
+        "medical",
+        "image",
+        "recognition",
+        "segmentation",
+        "parsing"
+      ],
+      "scraped_at": "2026-09-22T16:06:51.854446",
+      "similarity": 0.3181,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "jamyspencer/ml_chart",
+      "snippet": "yolov8 image recoginition system for pulling chart information",
+      "url": "https://github.com/jamyspencer/ml_chart",
+      "year": 2024,
       "stars": 0,
       "forks": 0,
       "language": "",
       "topics": [],
       "source": "github",
       "source_label": "GitHub Repository",
-      "query": "attaendance",
+      "query": "image recoginition ml",
       "keywords": [
-        "suhanigaikwad71-cpu",
-        "attaendance"
+        "jamyspencer",
+        "chart",
+        "yolov8",
+        "image",
+        "recoginition",
+        "pulling",
+        "chart",
+        "information"
       ],
-      "scraped_at": "2026-04-28T20:57:35.357950",
-      "similarity": 0.2459,
+      "scraped_at": "2026-09-22T16:07:01.261723",
+      "similarity": 0.3103,
       "status": "Similar Work Found"
     },
     {
-      "title": "randyroger94/attaendance-rn",
+      "title": "Image Pattern Recognition",
       "snippet": "",
-      "url": "https://github.com/randyroger94/attaendance-rn",
-      "year": 2025,
-      "stars": 0,
-      "forks": 0,
-      "language": "HTML",
-      "topics": [],
-      "source": "github",
-      "source_label": "GitHub Repository",
-      "query": "attaendance",
-      "keywords": [
-        "randyroger94",
-        "attaendance-rn",
-        "html"
-      ],
-      "scraped_at": "2026-04-28T20:57:35.357956",
-      "similarity": 0.2459,
-      "status": "Similar Work Found"
-    },
-    {
-      "title": "harshitagrawalprogo/IndproBuddyPro",
-      "snippet": "The is an attaendance system ",
-      "url": "https://github.com/harshitagrawalprogo/IndproBuddyPro",
-      "year": 2025,
-      "stars": 0,
-      "forks": 0,
-      "language": "TypeScript",
-      "topics": [],
-      "source": "github",
-      "source_label": "GitHub Repository",
-      "query": "attaendance",
-      "keywords": [
-        "harshitagrawalprogo",
-        "indprobuddypro",
-        "attaendance",
-        "typescript"
-      ],
-      "scraped_at": "2026-04-28T20:57:35.357972",
-      "similarity": 0.2459,
-      "status": "Similar Work Found"
-    },
-    {
-      "title": "yusron007/case_live-attaendance",
-      "snippet": "",
-      "url": "https://github.com/yusron007/case_live-attaendance",
-      "year": 2024,
-      "stars": 0,
-      "forks": 0,
-      "language": "TypeScript",
-      "topics": [],
-      "source": "github",
-      "source_label": "GitHub Repository",
-      "query": "attaendance",
-      "keywords": [
-        "yusron007",
-        "live-attaendance",
-        "typescript"
-      ],
-      "scraped_at": "2026-04-28T20:57:35.357988",
-      "similarity": 0.2459,
-      "status": "Similar Work Found"
-    },
-    {
-      "title": "Jaydeep-sudo/attaendance-atomation",
-      "snippet": "",
-      "url": "https://github.com/Jaydeep-sudo/attaendance-atomation",
-      "year": 2025,
-      "stars": 0,
-      "forks": 0,
-      "language": "Python",
-      "topics": [],
-      "source": "github",
-      "source_label": "GitHub Repository",
-      "query": "attaendance",
-      "keywords": [
-        "jaydeep-sudo",
-        "attaendance-atomation",
-        "python"
-      ],
-      "scraped_at": "2026-04-28T20:57:35.357963",
-      "similarity": 0.2278,
-      "status": "Similar Work Found"
-    },
-    {
-      "title": "Can Applied STEM Coursework Improve Attendance for Low-Income Students?",
-      "snippet": "",
-      "url": "https://doi.org/10.3102/1569361",
-      "year": 2020,
+      "url": "https://doi.org/10.1007/springerreference_70965",
+      "year": null,
       "citations": 0,
       "source": "crossref",
       "source_label": "Published Work",
-      "query": "I am building an app for MITWPU students where they can track their marks lecture attendance and res",
+      "query": "image recognition",
       "keywords": [
-        "applied",
-        "stem",
-        "coursework",
-        "improve",
-        "attendance",
-        "low-income",
-        "students"
+        "image",
+        "pattern",
+        "recognition"
       ],
-      "scraped_at": "2026-04-28T20:55:47.513685",
-      "similarity": 0.197,
-      "status": "Potentially Original"
+      "scraped_at": "2026-09-22T16:06:51.854446",
+      "similarity": 0.2674,
+      "status": "Similar Work Found"
     },
     {
-      "title": "Parking app can predict when a spot will open up",
+      "title": "An image enhancement tool: Pattern Recognition Image Augmented Resolution",
       "snippet": "",
-      "url": "https://doi.org/10.1016/s0262-4079(13)62584-1",
-      "year": 2013,
-      "citations": 0,
+      "url": "https://doi.org/10.1134/s1054661816030160",
+      "year": 2016,
+      "citations": 2,
       "source": "crossref",
       "source_label": "Published Work",
-      "query": "I am building an app for MITWPU students where they can track their marks lecture attendance and res",
+      "query": "image recognition",
       "keywords": [
-        "parking",
-        "app",
+        "image",
+        "enhancement",
+        "tool",
+        "pattern",
+        "recognition",
+        "image",
+        "augmented",
+        "resolution"
+      ],
+      "scraped_at": "2026-09-22T16:06:51.854446",
+      "similarity": 0.2644,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "MaaXYZ/MaaFramework",
+      "snippet": "\u57fa\u4e8e\u56fe\u50cf\u8bc6\u522b\u7684\u81ea\u52a8\u5316\u9ed1\u76d2\u6d4b\u8bd5\u6846\u67b6 | An automation black-box testing framework based on image recognition",
+      "url": "https://github.com/MaaXYZ/MaaFramework",
+      "year": 2023,
+      "stars": 4905,
+      "forks": 558,
+      "language": "C++",
+      "topics": [
+        "black-box-testing",
+        "computer-vision"
+      ],
+      "source": "github",
+      "source_label": "GitHub Repository",
+      "query": "image recognition",
+      "keywords": [
+        "maaxyz",
+        "maaframework",
+        "automation",
+        "black-box",
+        "testing",
+        "framework",
+        "image",
+        "recognition",
+        "black-box-testing",
+        "computer-vision"
+      ],
+      "scraped_at": "2026-09-22T16:06:56.862500",
+      "similarity": 0.2634,
+      "status": "Similar Work Found"
+    },
+    {
+      "title": "Multi-Label Image Recognition With Graph Convolutional Networks",
+      "snippet": "The task of multi-label image recognition is to predict a set of object labels that present in an image. As objects normally co-occur in an image, it is desirable to model the label dependencies to improve the recognition performance. To capture and explore such important dependencies, we propose a multi-label classification model based on Graph Convolutional Network (GCN). The model builds a directed graph over the object labels, where each node (label) is represented by word embeddings of a la",
+      "url": "https://doi.org/10.1109/cvpr.2019.00532",
+      "year": 2019,
+      "citations": 1265,
+      "source": "openalex",
+      "source_label": "Academic Paper",
+      "query": "image recognition",
+      "keywords": [
+        "multi-label",
+        "image",
+        "recognition",
+        "graph",
+        "convolutional",
+        "networks",
+        "task",
+        "multi-label",
+        "image",
+        "recognition",
         "predict",
-        "spot"
+        "object",
+        "labels",
+        "image",
+        "objects"
       ],
-      "scraped_at": "2026-04-28T20:55:47.513830",
-      "similarity": 0.1903,
-      "status": "Potentially Original"
+      "scraped_at": "2026-09-22T16:06:54.791362",
+      "similarity": 0.257,
+      "status": "Similar Work Found"
     },
     {
-      "title": "DBMS Tutorial",
-      "snippet": "DBMSCharacteristics A database is a collection of related data and data is a collection of facts and figures that can be processed to produce information. Mostly, data represents recordable facts. Data aids in producing information, which is based on facts. For example, if we have data about marks obtained by all students, we can then conclude about toppers and average marks.",
-      "url": "https://www.tutorialspoint.com/dbms/index.htm",
-      "year": null,
-      "source": "web",
-      "source_label": "Web Result",
-      "query": "dbms",
+      "title": "Recognition-by-components: A theory of human image understanding.",
+      "snippet": "The perceptual recognition of objects is conceptualized to be a process in which the image of the input is segmented at regions of deep concavity into an arrangement of simple geometric components, such as blocks, cylinders, wedges, and cones. The fundamental assumption of the proposed theory, recognition-by-components (RBC), is that a modest set of generalized-cone components, called geons (N ^ 36), can be derived from contrasts of five readily detectable properties of edges in a two-dimensiona",
+      "url": "https://doi.org/10.1037/0033-295x.94.2.115",
+      "year": 1987,
+      "citations": 5597,
+      "source": "openalex",
+      "source_label": "Academic Paper",
+      "query": "image recognition",
       "keywords": [
-        "dbms",
-        "tutorial",
-        "dbmscharacteristics",
-        "database",
-        "collection",
-        "related",
-        "collection",
-        "facts",
-        "figures",
-        "processed",
-        "produce",
-        "information",
-        "mostly",
-        "represents",
-        "recordable"
+        "recognition-by-components",
+        "theory",
+        "human",
+        "image",
+        "understanding",
+        "perceptual",
+        "recognition",
+        "objects",
+        "conceptualized",
+        "process",
+        "image",
+        "input",
+        "segmented",
+        "regions",
+        "deep"
       ],
-      "scraped_at": "2026-04-28T20:57:18.013009",
-      "similarity": 0.1896,
-      "status": "Potentially Original"
+      "scraped_at": "2026-09-22T16:06:54.791362",
+      "similarity": 0.254,
+      "status": "Similar Work Found"
     },
     {
-      "title": "Turning Point  Building a Future Where All Can Thrive",
-      "snippet": "",
-      "url": "https://doi.org/10.4324/9781003579403-6",
-      "year": 2024,
-      "citations": 0,
-      "source": "crossref",
-      "source_label": "Published Work",
-      "query": "I am building an app for MITWPU students where they can track their marks lecture attendance and res",
+      "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+      "snippet": "In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small (3x3) convolution filters, which shows that a significant improvement on the prior-art configurations can be achieved by pushing the depth to 16-19 weight layers. These findings were the basis of our ImageNet Challenge 2014 submission, where our t",
+      "url": "https://doi.org/10.48550/arxiv.1409.1556",
+      "year": 2014,
+      "citations": 75434,
+      "source": "openalex",
+      "source_label": "Academic Paper",
+      "query": "image recognition",
       "keywords": [
-        "turning",
-        "building",
-        "future",
-        "thrive"
+        "deep",
+        "convolutional",
+        "networks",
+        "large-scale",
+        "image",
+        "recognition",
+        "investigate",
+        "effect",
+        "convolutional",
+        "network",
+        "depth",
+        "accuracy",
+        "large-scale",
+        "image",
+        "recognition"
       ],
-      "scraped_at": "2026-04-28T20:55:47.513815",
-      "similarity": 0.1866,
-      "status": "Potentially Original"
-    },
-    {
-      "title": "What is DBMS (Database Management System)? - Guru99",
-      "snippet": "What isDBMS? Database Management System (DBMS) is software for storing and retrieving users' data while applying appropriate security measures. It consists of a group of programs that manipulate the database. TheDBMSaccepts the request for data from an application and instructs the operating system to provide the specific data. In large systems, aDBMShelps users and other third-party ...",
-      "url": "https://www.guru99.com/what-is-dbms.html",
-      "year": null,
-      "source": "web",
-      "source_label": "Web Result",
-      "query": "dbms",
-      "keywords": [
-        "dbms",
-        "database",
-        "management",
-        "guru99",
-        "isdbms",
-        "database",
-        "management",
-        "dbms",
-        "software",
-        "storing",
-        "retrieving",
-        "users",
-        "applying",
-        "appropriate",
-        "security"
-      ],
-      "scraped_at": "2026-04-28T20:57:18.013352",
-      "similarity": 0.1848,
-      "status": "Potentially Original"
-    },
-    {
-      "title": "kiranmc/AttaendanceManagementSystem",
-      "snippet": "Attendance Management System",
-      "url": "https://github.com/kiranmc/AttaendanceManagementSystem",
-      "year": 2018,
-      "stars": 0,
-      "forks": 0,
-      "language": "",
-      "topics": [],
-      "source": "github",
-      "source_label": "GitHub Repository",
-      "query": "attaendance",
-      "keywords": [
-        "kiranmc",
-        "attaendancemanagementsystem",
-        "attendance",
-        "management"
-      ],
-      "scraped_at": "2026-04-28T20:57:35.357943",
-      "similarity": 0.1748,
-      "status": "Potentially Original"
-    },
-    {
-      "title": "database management system (DBMS) - TechTarget",
-      "snippet": "What is a database management system (DBMS)? A database management system (DBMS) is a software system for creating and managing databases. ADBMSenables end users to create, protect, read, update and delete data in a database. It also manages security, data integrity and concurrency for databases.",
-      "url": "https://www.techtarget.com/searchdatamanagement/definition/database-management-system",
-      "year": null,
-      "source": "web",
-      "source_label": "Web Result",
-      "query": "dbms",
-      "keywords": [
-        "database",
-        "management",
-        "dbms",
-        "techtarget",
-        "database",
-        "management",
-        "dbms",
-        "database",
-        "management",
-        "dbms",
-        "software",
-        "creating",
-        "managing",
-        "databases",
-        "adbmsenables"
-      ],
-      "scraped_at": "2026-04-28T20:57:18.013101",
-      "similarity": 0.1683,
-      "status": "Potentially Original"
-    },
-    {
-      "title": "Spatial DBMS",
-      "snippet": "",
-      "url": "https://doi.org/10.1007/springerreference_62918",
-      "year": null,
-      "citations": 0,
-      "source": "crossref",
-      "source_label": "Published Work",
-      "query": "dbms",
-      "keywords": [
-        "spatial",
-        "dbms"
-      ],
-      "scraped_at": "2026-04-28T20:57:10.396178",
-      "similarity": 0.1646,
-      "status": "Potentially Original"
-    },
-    {
-      "title": "Staged DBMS",
-      "snippet": "",
-      "url": "https://doi.org/10.1007/springerreference_63734",
-      "year": null,
-      "citations": 0,
-      "source": "crossref",
-      "source_label": "Published Work",
-      "query": "dbms",
-      "keywords": [
-        "staged",
-        "dbms"
-      ],
-      "scraped_at": "2026-04-28T20:57:10.396201",
-      "similarity": 0.1646,
-      "status": "Potentially Original"
-    },
-    {
-      "title": "DBMS",
-      "snippet": "",
-      "url": "https://doi.org/10.1007/springerreference_64765",
-      "year": null,
-      "citations": 0,
-      "source": "crossref",
-      "source_label": "Published Work",
-      "query": "dbms",
-      "keywords": [
-        "dbms"
-      ],
-      "scraped_at": "2026-04-28T20:57:10.396215",
-      "similarity": 0.1646,
-      "status": "Potentially Original"
+      "scraped_at": "2026-09-22T16:06:54.791362",
+      "similarity": 0.2495,
+      "status": "Similar Work Found"
     }
   ],
-  "global_result_count": 374,
+  "global_result_count": 305,
   "plagiarism_sources": [
     {
-      "title": "An association between accessing lecture recordings, but not lecture attendance, and overall marks for optometry students in a pharmacology course",
-      "url": "https://doi.org/10.21203/rs.3.rs-118346/v1",
-      "similarity_pct": 47.5,
+      "title": "image recognition",
+      "url": "https://doi.org/10.1007/springerreference_16061",
+      "similarity_pct": 55.2,
       "source_type": "crossref",
       "source_label": "Published Work",
       "year": null,
       "citations": 0,
       "stars": 0,
-      "snippet": "Abstract\n        Background: Most studies, in the absence and presence of lecture recordings, have shown that there is an association between lecture attendance and academic performance for students of the biological sciences, but it is not known whe"
+      "snippet": ""
     },
     {
-      "title": "Can Australian Universities Take Measures to Increase the Lecture Attendance of Marketing Students?",
-      "url": "https://doi.org/10.1177/0273475309345202",
-      "similarity_pct": 44.5,
+      "title": "Image Recognition and Analysis: Results of Belarusian Scientists",
+      "url": "https://doi.org/10.1134/s105466182304003x",
+      "similarity_pct": 52.1,
       "source_type": "crossref",
       "source_label": "Published Work",
-      "year": 2009,
-      "citations": 28,
-      "stars": 0,
-      "snippet": " Lectures are a central element of traditional university learning, but Australian lecturers increasingly face very low levels of lecture attendance. A significant amount of research exists that investigates the drivers of lecture attendance. However"
-    },
-    {
-      "title": "Donkie/Spoolman",
-      "url": "https://github.com/Donkie/Spoolman",
-      "similarity_pct": 26.9,
-      "source_type": "github",
-      "source_label": "GitHub Repository",
       "year": 2023,
       "citations": 0,
-      "stars": 2390,
-      "snippet": "Keep track of your inventory of 3D-printer filament spools."
-    },
-    {
-      "title": "Building a Student Attendance Tracker - Medium",
-      "url": "https://medium.com/@24cs016/building-a-student-attendance-tracker-my-first-step-into-real-world-problem-solving-da42a74ec53f",
-      "similarity_pct": 26.4,
-      "source_type": "web",
-      "source_label": "Web Result",
-      "year": null,
-      "citations": 0,
-      "stars": 0,
-      "snippet": "Hello everyone! I'm Mathew Joby, a Computer Science and Engineeringstudentfrom Muthoot Institute of technology and science . In this blog post, I want to share a little bit about my journey of ..."
-    },
-    {
-      "title": "Behavioural science can help make the UK\u2019s track and trace app a success \u2013 here\u2019s how",
-      "url": "https://doi.org/10.64628/ab.n4ks36mkt",
-      "similarity_pct": 25.6,
-      "source_type": "crossref",
-      "source_label": "Published Work",
-      "year": null,
-      "citations": 0,
       "stars": 0,
       "snippet": ""
     },
     {
-      "title": "suhanigaikwad71-cpu/attaendance",
-      "url": "https://github.com/suhanigaikwad71-cpu/attaendance",
-      "similarity_pct": 24.6,
-      "source_type": "github",
-      "source_label": "GitHub Repository",
-      "year": 2026,
-      "citations": 0,
-      "stars": 0,
-      "snippet": ""
-    },
-    {
-      "title": "randyroger94/attaendance-rn",
-      "url": "https://github.com/randyroger94/attaendance-rn",
-      "similarity_pct": 24.6,
-      "source_type": "github",
-      "source_label": "GitHub Repository",
-      "year": 2025,
-      "citations": 0,
-      "stars": 0,
-      "snippet": ""
-    },
-    {
-      "title": "harshitagrawalprogo/IndproBuddyPro",
-      "url": "https://github.com/harshitagrawalprogo/IndproBuddyPro",
-      "similarity_pct": 24.6,
-      "source_type": "github",
-      "source_label": "GitHub Repository",
-      "year": 2025,
-      "citations": 0,
-      "stars": 0,
-      "snippet": "The is an attaendance system "
-    },
-    {
-      "title": "yusron007/case_live-attaendance",
-      "url": "https://github.com/yusron007/case_live-attaendance",
-      "similarity_pct": 24.6,
-      "source_type": "github",
-      "source_label": "GitHub Repository",
-      "year": 2024,
-      "citations": 0,
-      "stars": 0,
-      "snippet": ""
-    },
-    {
-      "title": "Jaydeep-sudo/attaendance-atomation",
-      "url": "https://github.com/Jaydeep-sudo/attaendance-atomation",
-      "similarity_pct": 22.8,
-      "source_type": "github",
-      "source_label": "GitHub Repository",
-      "year": 2025,
-      "citations": 0,
-      "stars": 0,
-      "snippet": ""
-    },
-    {
-      "title": "Can Applied STEM Coursework Improve Attendance for Low-Income Students?",
-      "url": "https://doi.org/10.3102/1569361",
-      "similarity_pct": 19.7,
-      "source_type": "crossref",
-      "source_label": "Published Work",
-      "year": 2020,
-      "citations": 0,
-      "stars": 0,
-      "snippet": ""
-    },
-    {
-      "title": "Parking app can predict when a spot will open up",
-      "url": "https://doi.org/10.1016/s0262-4079(13)62584-1",
-      "similarity_pct": 19.0,
-      "source_type": "crossref",
-      "source_label": "Published Work",
-      "year": 2013,
-      "citations": 0,
-      "stars": 0,
-      "snippet": ""
-    },
-    {
-      "title": "DBMS Tutorial",
-      "url": "https://www.tutorialspoint.com/dbms/index.htm",
-      "similarity_pct": 19.0,
-      "source_type": "web",
-      "source_label": "Web Result",
-      "year": null,
-      "citations": 0,
-      "stars": 0,
-      "snippet": "DBMSCharacteristics A database is a collection of related data and data is a collection of facts and figures that can be processed to produce information. Mostly, data represents recordable facts. Data aids in producing information, which is based on"
-    },
-    {
-      "title": "Turning Point  Building a Future Where All Can Thrive",
-      "url": "https://doi.org/10.4324/9781003579403-6",
-      "similarity_pct": 18.7,
-      "source_type": "crossref",
-      "source_label": "Published Work",
-      "year": 2024,
-      "citations": 0,
-      "stars": 0,
-      "snippet": ""
-    },
-    {
-      "title": "What is DBMS (Database Management System)? - Guru99",
-      "url": "https://www.guru99.com/what-is-dbms.html",
-      "similarity_pct": 18.5,
-      "source_type": "web",
-      "source_label": "Web Result",
-      "year": null,
-      "citations": 0,
-      "stars": 0,
-      "snippet": "What isDBMS? Database Management System (DBMS) is software for storing and retrieving users' data while applying appropriate security measures. It consists of a group of programs that manipulate the database. TheDBMSaccepts the request for data from "
-    },
-    {
-      "title": "kiranmc/AttaendanceManagementSystem",
-      "url": "https://github.com/kiranmc/AttaendanceManagementSystem",
-      "similarity_pct": 17.5,
+      "title": "ThoughtfulDev/EagleEye",
+      "url": "https://github.com/ThoughtfulDev/EagleEye",
+      "similarity_pct": 50.1,
       "source_type": "github",
       "source_label": "GitHub Repository",
       "year": 2018,
       "citations": 0,
-      "stars": 0,
-      "snippet": "Attendance Management System"
+      "stars": 5222,
+      "snippet": "Stalk your Friends. Find their Instagram, FB and Twitter Profiles using Image Recognition and Reverse Image Search."
     },
     {
-      "title": "database management system (DBMS) - TechTarget",
-      "url": "https://www.techtarget.com/searchdatamanagement/definition/database-management-system",
-      "similarity_pct": 16.8,
-      "source_type": "web",
-      "source_label": "Web Result",
-      "year": null,
-      "citations": 0,
-      "stars": 0,
-      "snippet": "What is a database management system (DBMS)? A database management system (DBMS) is a software system for creating and managing databases. ADBMSenables end users to create, protect, read, update and delete data in a database. It also manages security"
-    },
-    {
-      "title": "Spatial DBMS",
-      "url": "https://doi.org/10.1007/springerreference_62918",
-      "similarity_pct": 16.5,
+      "title": "Retraction Note to: Translation analysis of English address image recognition based on image recognition",
+      "url": "https://doi.org/10.1186/s13640-022-00595-5",
+      "similarity_pct": 48.1,
       "source_type": "crossref",
       "source_label": "Published Work",
       "year": null,
@@ -697,9 +532,9 @@
       "snippet": ""
     },
     {
-      "title": "Staged DBMS",
-      "url": "https://doi.org/10.1007/springerreference_63734",
-      "similarity_pct": 16.5,
+      "title": "The Link Between Image Segmentation and Image Recognition",
+      "url": "https://doi.org/10.15760/etd.199",
+      "similarity_pct": 47.2,
       "source_type": "crossref",
       "source_label": "Published Work",
       "year": null,
@@ -708,9 +543,9 @@
       "snippet": ""
     },
     {
-      "title": "DBMS",
-      "url": "https://doi.org/10.1007/springerreference_64765",
-      "similarity_pct": 16.5,
+      "title": "\u00e2\u0080\u0098You Can Be Who You Want to Be, Do What You Want to Do\u00e2\u0080\u0099",
+      "url": "https://doi.org/10.1057/9781137022400.0010",
+      "similarity_pct": 36.2,
       "source_type": "crossref",
       "source_label": "Published Work",
       "year": null,
@@ -719,9 +554,20 @@
       "snippet": ""
     },
     {
-      "title": "DBMS Component",
-      "url": "https://doi.org/10.1007/springerreference_63744",
-      "similarity_pct": 16.5,
+      "title": "What Flies Want Is Not",
+      "url": "https://doi.org/10.2307/j.ctv2bndf07.21",
+      "similarity_pct": 36.2,
+      "source_type": "crossref",
+      "source_label": "Published Work",
+      "year": 2022,
+      "citations": 0,
+      "stars": 0,
+      "snippet": ""
+    },
+    {
+      "title": "Show them what you want them to hear",
+      "url": "https://doi.org/10.1109/ipcc.1991.172819",
+      "similarity_pct": 36.2,
       "source_type": "crossref",
       "source_label": "Published Work",
       "year": null,
@@ -730,181 +576,322 @@
       "snippet": ""
     },
     {
-      "title": "GIS versus CAD versus DBMS: what are the differences?",
-      "url": "https://doi.org/10.1201/b12579-11",
-      "similarity_pct": 16.5,
-      "source_type": "openalex",
-      "source_label": "Academic Paper",
-      "year": 1990,
-      "citations": 315,
-      "stars": 0,
-      "snippet": ""
-    },
-    {
-      "title": "MadeBaruna/paimon-moe",
-      "url": "https://github.com/MadeBaruna/paimon-moe",
-      "similarity_pct": 15.9,
+      "title": "jetpacapp/DeepBeliefSDK",
+      "url": "https://github.com/jetpacapp/DeepBeliefSDK",
+      "similarity_pct": 34.7,
       "source_type": "github",
       "source_label": "GitHub Repository",
-      "year": 2020,
+      "year": 2014,
       "citations": 0,
-      "stars": 1511,
-      "snippet": "Your best Genshin Impact companion! Help you plan what to farm with ascension calculator and database. Also track your progress with todo and wish counter."
+      "stars": 2851,
+      "snippet": "The SDK for Jetpac's iOS Deep Belief image recognition framework"
     },
     {
-      "title": "Cybersecurity Origins",
-      "url": "https://doi.org/10.7551/mitpress/11656.003.0003",
-      "similarity_pct": 15.3,
+      "title": "Image Kernel for Recognition",
+      "url": "https://doi.org/10.5772/7545",
+      "similarity_pct": 33.4,
       "source_type": "crossref",
       "source_label": "Published Work",
-      "year": 2021,
+      "year": null,
       "citations": 1,
       "stars": 0,
       "snippet": ""
     },
     {
-      "title": "Cybersecurity and sovereignty",
-      "url": "https://doi.org/10.51174/ajdss.0302/vjiq5734",
-      "similarity_pct": 15.3,
+      "title": "We do not want to \u201ccure plant blindness\u201d we want to grow plant love",
+      "url": "https://doi.org/10.1002/ppp3.10062",
+      "similarity_pct": 32.9,
+      "source_type": "crossref",
+      "source_label": "Published Work",
+      "year": 2019,
+      "citations": 41,
+      "stars": 0,
+      "snippet": ""
+    },
+    {
+      "title": "What Do Plants Want?",
+      "url": "https://doi.org/10.1057/978-1-137-57063-5_10",
+      "similarity_pct": 32.5,
+      "source_type": "crossref",
+      "source_label": "Published Work",
+      "year": 2016,
+      "citations": 5,
+      "stars": 0,
+      "snippet": ""
+    },
+    {
+      "title": "Introduction to Medical Image Recognition, Segmentation, and Parsing",
+      "url": "https://doi.org/10.1016/b978-0-12-802581-9.00001-9",
+      "similarity_pct": 31.8,
+      "source_type": "crossref",
+      "source_label": "Published Work",
+      "year": 2016,
+      "citations": 13,
+      "stars": 0,
+      "snippet": ""
+    },
+    {
+      "title": "jamyspencer/ml_chart",
+      "url": "https://github.com/jamyspencer/ml_chart",
+      "similarity_pct": 31.0,
+      "source_type": "github",
+      "source_label": "GitHub Repository",
+      "year": 2024,
+      "citations": 0,
+      "stars": 0,
+      "snippet": "yolov8 image recoginition system for pulling chart information"
+    },
+    {
+      "title": "Image Pattern Recognition",
+      "url": "https://doi.org/10.1007/springerreference_70965",
+      "similarity_pct": 26.7,
       "source_type": "crossref",
       "source_label": "Published Work",
       "year": null,
       "citations": 0,
       "stars": 0,
       "snippet": ""
+    },
+    {
+      "title": "An image enhancement tool: Pattern Recognition Image Augmented Resolution",
+      "url": "https://doi.org/10.1134/s1054661816030160",
+      "similarity_pct": 26.4,
+      "source_type": "crossref",
+      "source_label": "Published Work",
+      "year": 2016,
+      "citations": 2,
+      "stars": 0,
+      "snippet": ""
+    },
+    {
+      "title": "MaaXYZ/MaaFramework",
+      "url": "https://github.com/MaaXYZ/MaaFramework",
+      "similarity_pct": 26.3,
+      "source_type": "github",
+      "source_label": "GitHub Repository",
+      "year": 2023,
+      "citations": 0,
+      "stars": 4905,
+      "snippet": "\u57fa\u4e8e\u56fe\u50cf\u8bc6\u522b\u7684\u81ea\u52a8\u5316\u9ed1\u76d2\u6d4b\u8bd5\u6846\u67b6 | An automation black-box testing framework based on image recognition"
+    },
+    {
+      "title": "Multi-Label Image Recognition With Graph Convolutional Networks",
+      "url": "https://doi.org/10.1109/cvpr.2019.00532",
+      "similarity_pct": 25.7,
+      "source_type": "openalex",
+      "source_label": "Academic Paper",
+      "year": 2019,
+      "citations": 1265,
+      "stars": 0,
+      "snippet": "The task of multi-label image recognition is to predict a set of object labels that present in an image. As objects normally co-occur in an image, it is desirable to model the label dependencies to improve the recognition performance. To capture and "
+    },
+    {
+      "title": "Recognition-by-components: A theory of human image understanding.",
+      "url": "https://doi.org/10.1037/0033-295x.94.2.115",
+      "similarity_pct": 25.4,
+      "source_type": "openalex",
+      "source_label": "Academic Paper",
+      "year": 1987,
+      "citations": 5597,
+      "stars": 0,
+      "snippet": "The perceptual recognition of objects is conceptualized to be a process in which the image of the input is segmented at regions of deep concavity into an arrangement of simple geometric components, such as blocks, cylinders, wedges, and cones. The fu"
+    },
+    {
+      "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+      "url": "https://doi.org/10.48550/arxiv.1409.1556",
+      "similarity_pct": 24.9,
+      "source_type": "openalex",
+      "source_label": "Academic Paper",
+      "year": 2014,
+      "citations": 75434,
+      "stars": 0,
+      "snippet": "In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very sma"
+    },
+    {
+      "title": "lucidrains/lambda-networks",
+      "url": "https://github.com/lucidrains/lambda-networks",
+      "similarity_pct": 24.8,
+      "source_type": "github",
+      "source_label": "GitHub Repository",
+      "year": 2020,
+      "citations": 0,
+      "stars": 1529,
+      "snippet": "Implementation of LambdaNetworks, a new approach to image recognition that reaches SOTA with less compute"
+    },
+    {
+      "title": "Pattern Recognition in Medical Image Diagnosis",
+      "url": "https://doi.org/10.5772/7538",
+      "similarity_pct": 23.6,
+      "source_type": "crossref",
+      "source_label": "Published Work",
+      "year": null,
+      "citations": 0,
+      "stars": 0,
+      "snippet": ""
+    },
+    {
+      "title": "jeonsworld/ViT-pytorch",
+      "url": "https://github.com/jeonsworld/ViT-pytorch",
+      "similarity_pct": 23.5,
+      "source_type": "github",
+      "source_label": "GitHub Repository",
+      "year": 2020,
+      "citations": 0,
+      "stars": 2160,
+      "snippet": "Pytorch reimplementation of the Vision Transformer (An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale)"
+    },
+    {
+      "title": "Becoming A Traditional Medicinal Plant Healer: Divergent Views of Practicing and Young Healers on Traditional Medicinal Plant Knowledge Skills in India",
+      "url": "https://doi.org/10.17348/era.7.0.39-51",
+      "similarity_pct": 22.9,
+      "source_type": "openalex",
+      "source_label": "Academic Paper",
+      "year": 2009,
+      "citations": 20,
+      "stars": 0,
+      "snippet": "Traditional medicinal plant knowledge (TMK) helps meet the health needs of a large section of the world\u2019s population, especially socially and economically disadvantaged and aboriginal communities of developing countries like India. However, there is "
+    },
+    {
+      "title": "xinyu1205/recognize-anything",
+      "url": "https://github.com/xinyu1205/recognize-anything",
+      "similarity_pct": 22.0,
+      "source_type": "github",
+      "source_label": "GitHub Repository",
+      "year": 2023,
+      "citations": 0,
+      "stars": 3724,
+      "snippet": "Open-source and strong foundation image recognition models."
     }
   ],
-  "total_user_keywords": 13,
+  "total_user_keywords": 17,
   "total_global_keywords": 50,
   "overlap_count": 5,
   "overlap_keywords": [
-    "app",
-    "attendance",
-    "cybersecurity",
-    "database",
-    "dbms"
+    "gemini",
+    "image",
+    "medicinal",
+    "plants",
+    "recognition"
   ],
   "only_local": [
-    "attaendance",
-    "building",
-    "lecture",
-    "marks",
-    "mitwpu",
-    "students",
-    "track",
-    "tracker"
+    "ai",
+    "create",
+    "cure",
+    "dataset",
+    "diseases",
+    "gemini api",
+    "image recoginition",
+    "image recognition",
+    "inputted",
+    "ml",
+    "output",
+    "plant"
   ],
   "only_global": [
-    "access",
+    "abstract",
+    "agents",
     "algorithms",
+    "api",
     "applications",
     "artificial",
     "awesome",
+    "build",
+    "challenges",
+    "chapter",
+    "chatgpt",
+    "claude",
     "cloud",
+    "code",
     "computer",
     "computing",
+    "deep",
     "design",
-    "development",
     "devices",
-    "distributed",
-    "embedded",
-    "github",
-    "intelligence",
-    "internet",
-    "iot",
-    "learn",
-    "learning",
-    "machine"
+    "embedded"
   ],
   "gaps": [
     {
       "keyword": "security",
-      "global_frequency": 104,
+      "global_frequency": 73,
       "trending_score": 100.0,
       "suggestion": "Consider exploring 'security' \u2014 trending globally but missing from your work."
     },
     {
       "keyword": "learning",
-      "global_frequency": 73,
-      "trending_score": 70.2,
+      "global_frequency": 68,
+      "trending_score": 93.2,
       "suggestion": "Consider exploring 'learning' \u2014 trending globally but missing from your work."
     },
     {
       "keyword": "cloud",
-      "global_frequency": 67,
-      "trending_score": 64.4,
+      "global_frequency": 55,
+      "trending_score": 75.3,
       "suggestion": "Consider exploring 'cloud' \u2014 trending globally but missing from your work."
     },
     {
-      "keyword": "iot",
-      "global_frequency": 62,
-      "trending_score": 59.6,
-      "suggestion": "Consider exploring 'iot' \u2014 trending globally but missing from your work."
-    },
-    {
-      "keyword": "embedded",
-      "global_frequency": 62,
-      "trending_score": 59.6,
-      "suggestion": "Consider exploring 'embedded' \u2014 trending globally but missing from your work."
-    },
-    {
       "keyword": "machine",
-      "global_frequency": 61,
-      "trending_score": 58.7,
+      "global_frequency": 54,
+      "trending_score": 74.0,
       "suggestion": "Consider exploring 'machine' \u2014 trending globally but missing from your work."
     },
     {
+      "keyword": "embedded",
+      "global_frequency": 52,
+      "trending_score": 71.2,
+      "suggestion": "Consider exploring 'embedded' \u2014 trending globally but missing from your work."
+    },
+    {
+      "keyword": "iot",
+      "global_frequency": 49,
+      "trending_score": 67.1,
+      "suggestion": "Consider exploring 'iot' \u2014 trending globally but missing from your work."
+    },
+    {
       "keyword": "computing",
-      "global_frequency": 60,
-      "trending_score": 57.7,
+      "global_frequency": 45,
+      "trending_score": 61.6,
       "suggestion": "Consider exploring 'computing' \u2014 trending globally but missing from your work."
     },
     {
-      "keyword": "systems",
-      "global_frequency": 55,
-      "trending_score": 52.9,
-      "suggestion": "Consider exploring 'systems' \u2014 trending globally but missing from your work."
-    },
-    {
       "keyword": "network",
-      "global_frequency": 46,
-      "trending_score": 44.2,
+      "global_frequency": 41,
+      "trending_score": 56.2,
       "suggestion": "Consider exploring 'network' \u2014 trending globally but missing from your work."
     },
     {
-      "keyword": "learn",
-      "global_frequency": 29,
-      "trending_score": 27.9,
-      "suggestion": "Consider exploring 'learn' \u2014 trending globally but missing from your work."
+      "keyword": "systems",
+      "global_frequency": 41,
+      "trending_score": 56.2,
+      "suggestion": "Consider exploring 'systems' \u2014 trending globally but missing from your work."
+    },
+    {
+      "keyword": "python",
+      "global_frequency": 33,
+      "trending_score": 45.2,
+      "suggestion": "Consider exploring 'python' \u2014 trending globally but missing from your work."
     }
   ],
   "connection_map": "img/connection_map.png",
   "status_counts": {
-    "already_exists": 0,
-    "similar_work": 10,
-    "original": 364
+    "already_exists": 3,
+    "similar_work": 27,
+    "original": 275
   },
   "source_breakdown": {
-    "crossref": 71,
-    "web": 83,
-    "openalex": 99,
-    "github": 121
+    "crossref": 67,
+    "openalex": 113,
+    "github": 125
   },
   "insights": {
-    "verdict": "Moderately Original",
-    "verdict_detail": "Your idea has some overlap with existing work, but there's enough uniqueness to differentiate.",
+    "verdict": "Partially Original",
+    "verdict_detail": "Significant similar work exists. You'll need a strong differentiator to stand out.",
     "should_build": true,
-    "recommendation": "\u2705 GO AHEAD \u2014 This project is worth building.",
-    "recommendation_detail": "Your idea is original enough to stand on its own. Focus on the unique aspects and build an MVP.",
+    "recommendation": "\ud83d\udfe1 PROCEED WITH CAUTION \u2014 Differentiation needed.",
+    "recommendation_detail": "The core concept exists, but you can still succeed by focusing on a unique angle, better UX, or an underserved niche.",
     "pros": [
       {
-        "title": "High Originality",
-        "detail": "With a 70.8% global originality score, your idea stands out from existing work.",
-        "icon": "\u2728"
-      },
-      {
         "title": "Research-Backed Field",
-        "detail": "Found 13 related academic papers. This means the field is active and your work would be relevant to ongoing research.",
+        "detail": "Found 18 related academic papers. This means the field is active and your work would be relevant to ongoing research.",
         "icon": "\ud83d\udcda"
       },
       {
@@ -913,13 +900,8 @@
         "icon": "\ud83d\udca1"
       },
       {
-        "title": "No Direct GitHub Competitor",
-        "detail": "While related repos exist, none closely match your specific approach. You'd be filling a gap in open-source.",
-        "icon": "\ud83d\ude80"
-      },
-      {
         "title": "Proven Demand",
-        "detail": "Related papers have 315+ citations, indicating strong interest in this area.",
+        "detail": "Related papers have 1265+ citations, indicating strong interest in this area.",
         "icon": "\ud83d\udcc8"
       },
       {
@@ -931,172 +913,146 @@
     "cons": [
       {
         "title": "Established Open-Source Competition",
-        "detail": "'Donkie/Spoolman' has 2390 stars on GitHub. You'd need significant improvements to compete.",
+        "detail": "'ThoughtfulDev/EagleEye' has 5222 stars on GitHub. You'd need significant improvements to compete.",
         "icon": "\u2b50"
       },
       {
         "title": "Extensive Existing Literature",
         "detail": "Found 25 matching sources. The concept is well-explored in academic and industry work.",
         "icon": "\ud83d\udcc4"
+      },
+      {
+        "title": "Moderate Risk of Overlap",
+        "detail": "Some similar projects exist. Make sure to clearly define what makes your approach unique.",
+        "icon": "\u26a1"
       }
     ],
     "usefulness": {
-      "real_world_impact": 6,
-      "technical_innovation": 4,
-      "market_potential": 5,
-      "learning_value": 6,
-      "community_interest": 7,
-      "overall": 5.6
+      "real_world_impact": 4,
+      "technical_innovation": 5,
+      "market_potential": 4,
+      "learning_value": 7,
+      "community_interest": 9,
+      "overall": 5.8
     }
   },
   "references": {
     "papers": [
       {
+        "title": "Deep Residual Learning for Image Recognition",
+        "url": "https://doi.org/10.1109/cvpr.2016.90",
+        "year": 2016,
+        "citations": 229377,
+        "source": "Academic Paper"
+      },
+      {
+        "title": "Exploiting Generative AI to Scale up Intelligent Tutoring Systems",
+        "url": "https://doi.org/10.4230/lipics.itp.2023.19",
+        "year": 2023,
+        "citations": 79061,
+        "source": "Academic Paper"
+      },
+      {
+        "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+        "url": "https://doi.org/10.48550/arxiv.1409.1556",
+        "year": 2014,
+        "citations": 75434,
+        "source": "Academic Paper"
+      },
+      {
         "title": "Scikit-learn: Machine Learning in Python",
         "url": "https://doi.org/10.48550/arxiv.1201.0490",
         "year": 2012,
-        "citations": 63571,
+        "citations": 64012,
+        "source": "Academic Paper"
+      },
+      {
+        "title": "ImageNet: A large-scale hierarchical image database",
+        "url": "https://doi.org/10.1109/cvpr.2009.5206848",
+        "year": 2009,
+        "citations": 63458,
+        "source": "Academic Paper"
+      },
+      {
+        "title": "Distinctive Image Features from Scale-Invariant Keypoints",
+        "url": "https://doi.org/10.1023/b:visi.0000029664.99615.94",
+        "year": 2004,
+        "citations": 55968,
         "source": "Academic Paper"
       },
       {
         "title": "Genetic algorithms in search, optimization, and machine learning",
         "url": "https://doi.org/10.5860/choice.27-0936",
         "year": 1989,
-        "citations": 49332,
+        "citations": 49297,
         "source": "Academic Paper"
       },
       {
-        "title": "Data Mining: Practical Machine Learning Tools and Techniques",
-        "url": "https://doi.org/10.1016/c2009-0-19715-5",
-        "year": 2011,
-        "citations": 25709,
-        "source": "Academic Paper"
-      },
-      {
-        "title": "UCI Machine Learning Repository",
-        "url": "https://openalex.org/W3120740533",
-        "year": 2007,
-        "citations": 24319,
-        "source": "Academic Paper"
-      },
-      {
-        "title": "C4.5: Programs for Machine Learning",
-        "url": "https://openalex.org/W2125055259",
-        "year": 1992,
-        "citations": 23694,
-        "source": "Academic Paper"
-      },
-      {
-        "title": "Pattern Recognition and Machine Learning",
-        "url": "https://doi.org/10.1117/1.2819119",
-        "year": 2007,
-        "citations": 22075,
-        "source": "Academic Paper"
-      },
-      {
-        "title": "Genetic Algorithms in Search, Optimization and Machine Learning",
-        "url": "https://openalex.org/W1639032689",
-        "year": 1988,
-        "citations": 17770,
-        "source": "Academic Paper"
-      },
-      {
-        "title": "Proceedings of the 24th international conference on Machine learning",
-        "url": "https://doi.org/10.1145/1273496",
-        "year": 2007,
-        "citations": 11733,
+        "title": "AI-Assisted Pipeline for Dynamic Generation of Trustworthy Health Supplement Content at Scale",
+        "url": "https://doi.org/10.4230/lipics.cosit.2022.18",
+        "year": 2018,
+        "citations": 46030,
         "source": "Academic Paper"
       }
     ],
     "repos": [
       {
+        "title": "openclaw/openclaw",
+        "url": "https://github.com/openclaw/openclaw",
+        "stars": 390239,
+        "language": "TypeScript",
+        "snippet": "The AI that really does things. Any OS. Any Platform. The lobster way. \ud83e\udd9e "
+      },
+      {
+        "title": "obra/superpowers",
+        "url": "https://github.com/obra/superpowers",
+        "stars": 289961,
+        "language": "Shell",
+        "snippet": "An agentic skills framework & software development methodology that works."
+      },
+      {
+        "title": "NousResearch/hermes-agent",
+        "url": "https://github.com/NousResearch/hermes-agent",
+        "stars": 247938,
+        "language": "Python",
+        "snippet": "The agent that grows with you"
+      },
+      {
+        "title": "n8n-io/n8n",
+        "url": "https://github.com/n8n-io/n8n",
+        "stars": 205660,
+        "language": "TypeScript",
+        "snippet": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations."
+      },
+      {
         "title": "tensorflow/tensorflow",
         "url": "https://github.com/tensorflow/tensorflow",
-        "stars": 194922,
+        "stars": 200239,
         "language": "C++",
         "snippet": "An Open Source Machine Learning Framework for Everyone"
       },
       {
-        "title": "huggingface/transformers",
-        "url": "https://github.com/huggingface/transformers",
-        "stars": 160040,
+        "title": "Significant-Gravitas/AutoGPT",
+        "url": "https://github.com/Significant-Gravitas/AutoGPT",
+        "stars": 187484,
         "language": "Python",
-        "snippet": "\ud83e\udd17 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both in"
+        "snippet": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matter"
       },
       {
-        "title": "microsoft/ML-For-Beginners",
-        "url": "https://github.com/microsoft/ML-For-Beginners",
-        "stars": 85520,
-        "language": "Jupyter Notebook",
-        "snippet": "12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all"
+        "title": "firecrawl/firecrawl",
+        "url": "https://github.com/firecrawl/firecrawl",
+        "stars": 183133,
+        "language": "TypeScript",
+        "snippet": "The web data API to search, scrape, and interact at scale. \ud83d\udd25"
       },
       {
-        "title": "sherlock-project/sherlock",
-        "url": "https://github.com/sherlock-project/sherlock",
-        "stars": 82609,
-        "language": "Python",
-        "snippet": "Hunt down social media accounts by username across social networks"
-      },
-      {
-        "title": "fighting41love/funNLP",
-        "url": "https://github.com/fighting41love/funNLP",
-        "stars": 80344,
-        "language": "Python",
-        "snippet": "\u4e2d\u82f1\u6587\u654f\u611f\u8bcd\u3001\u8bed\u8a00\u68c0\u6d4b\u3001\u4e2d\u5916\u624b\u673a/\u7535\u8bdd\u5f52\u5c5e\u5730/\u8fd0\u8425\u5546\u67e5\u8be2\u3001\u540d\u5b57\u63a8\u65ad\u6027\u522b\u3001\u624b\u673a\u53f7\u62bd\u53d6\u3001\u8eab\u4efd\u8bc1\u62bd\u53d6\u3001\u90ae\u7bb1\u62bd\u53d6\u3001\u4e2d\u65e5\u6587\u4eba\u540d\u5e93\u3001\u4e2d\u6587\u7f29\u5199\u5e93\u3001\u62c6\u5b57\u8bcd\u5178\u3001\u8bcd\u6c47\u60c5\u611f\u503c\u3001\u505c\u7528\u8bcd\u3001\u53cd\u52a8\u8bcd\u8868\u3001\u66b4\u6050\u8bcd\u8868\u3001\u7e41\u7b80\u4f53\u8f6c\u6362\u3001\u82f1\u6587\u6a21\u62df\u4e2d\u6587\u53d1\u97f3\u3001\u6c6a\u5cf0\u6b4c\u8bcd\u751f\u6210\u5668\u3001\u804c\u4e1a\u540d\u79f0\u8bcd\u5e93\u3001\u540c\u4e49\u8bcd\u5e93\u3001\u53cd\u4e49\u8bcd\u5e93\u3001\u5426\u5b9a\u8bcd\u5e93\u3001\u6c7d\u8f66\u54c1\u724c\u8bcd\u5e93\u3001\u6c7d\u8f66\u96f6\u4ef6\u8bcd\u5e93\u3001"
-      },
-      {
-        "title": "josephmisiti/awesome-machine-learning",
-        "url": "https://github.com/josephmisiti/awesome-machine-learning",
-        "stars": 72324,
-        "language": "Python",
-        "snippet": "A curated list of awesome Machine Learning frameworks, libraries and software."
-      },
-      {
-        "title": "scikit-learn/scikit-learn",
-        "url": "https://github.com/scikit-learn/scikit-learn",
-        "stars": 65940,
-        "language": "Python",
-        "snippet": "scikit-learn: machine learning in Python"
-      },
-      {
-        "title": "WerWolv/ImHex",
-        "url": "https://github.com/WerWolv/ImHex",
-        "stars": 53339,
-        "language": "C++",
-        "snippet": "\ud83d\udd0d A Hex Editor for Reverse Engineers, Programmers and people who value their retinas when working at 3 AM."
+        "title": "f/prompts.chat",
+        "url": "https://github.com/f/prompts.chat",
+        "stars": 170949,
+        "language": "HTML",
+        "snippet": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source \u2014 self-host for your organization with c"
       }
     ],
-    "web": [
-      {
-        "title": "Pega Low-Code Development - Mobile App Software",
-        "url": "https://duckduckgo.com/y.js?ad_domain=pega.com&ad_provider=bingv7aa&ad_type=txad&click_metadata=5rR5Dkkhv8-dS0l2MjrAsm1lNCl86gD6GCDuryDVM8afsuacfhQnRqjOWLvv8xwB2plBj7wgXjxpGwZWbqwCfA7T5dq5LudUL77RH60HEAvTZW_dNJJLdr7TPL4Azmr2MTC3LIJjiidKHFYvCrHaxxx5TESuRERAjX1dKVew3eA.SdWonl9SKio3eNNg9DC0eQ&rut=73a6b0d2b7f28e43f9a5ee2b0e2de71961194dad367df3087ad097395f06e013&u3=https://www.bing.com/aclick?ld=e8rsi6jnvOdeWDj5t2euwtOjVUCUzyIl0BntAjN4prO7k25_xaT_Ld2JLP-i496obnoAmV9DrzuJt8Kv-bO_Mzbg2qrR1wZKh0smuKIG5egsBGtKU4Y891zAVEBa_kN3uNyuf9lXTOggKzgY_ezrksK7G78VFLn-tSkorYCJIU64W2tzR1TV6MCBIo-e5BR0Oh4TP19NcJCtkkli_ZSXoDIdGDijI&u=aHR0cHMlM2ElMmYlMmZhZC5kb3VibGVjbGljay5uZXQlMmZzZWFyY2hhZHMlMmZsaW5rJTJmY2xpY2slM2ZsaWQlM2Q0MzcwMDA4MDY3NTk4OTExNyUyNmRzX3Nfa3dnaWQlM2Q1ODcwMDAwODc2MzA2NjYxMiUyNmRzX2FfY2lkJTNkNDAwODE3MjUwJTI2ZHNfYV9jYWlkJTNkMjE2NTg4NTAwOTMlMjZkc19hX2FnaWQlM2QxNjg0Njg0NTA0MDIlMjZkc19hX2xpZCUzZGt3ZC0zNjI0NjgwODMlMjYlMjZkc19lX2FkaWQlM2Q4MTA4OTExMDIwMzc5OCUyNmRzX2VfdGFyZ2V0X2lkJTNka3dkLTgxMDg5MzE2MDE2NjgxJTNhbG9jLTkwJTI2JTI2ZHNfZV9uZXR3b3JrJTNkcyUyNmRzX3VybF92JTNkMiUyNmRzX2Rlc3RfdXJsJTNkaHR0cHMlM2ElMmYlMmZ3d3cucGVnYS5jb20lMmZwcm9kdWN0cyUyZnBsYXRmb3JtJTJmbW9iaWxlLWFwcC1kZXZlbG9wbWVudCUzZnV0bV9zb3VyY2UlM2RiaW5nJTI2dXRtX21lZGl1bSUzZGNwYyUyNnV0bV9jYW1wYWlnbiUzZEJfSW5kaWFfTm9uYnJhbmRfTENfQXBwRGV2X0lBX0Jyb2FkX0NQTklEX0VOJTI2dXRtX3Rlcm0lM2Rtb2JpbGUlMjUyMGFwcCUyNTIwZGV2ZWxvcG1lbnQlMjZnbG9jJTNkMTU2NjY0JTI2dXRtX2NvbnRlbnQlM2RwY3JpZCU3YyU3Y3BrdyU3Y2t3ZC04MTA4OTMxNjAxNjY4MSUzYWxvYy05MCU3Y3BtdCU3Y3AlN2NwZHYlN2NjJTdjJTI2Z2NsaWQlM2RlZDRiODNmYzQyYWExZmMzNTBhMWVhMGM5MzI5NGVlOSUyNmdjbHNyYyUzZDNwLmRzJTI2JTI2bXNjbGtpZCUzZGVkNGI4M2ZjNDJhYTFmYzM1MGExZWEwYzkzMjk0ZWU5JTI2dXRtX3NvdXJjZSUzZGJpbmclMjZ1dG1fbWVkaXVtJTNkY3BjJTI2dXRtX2NhbXBhaWduJTNkQl9JbmRpYV9Ob25icmFuZF9MQ19BcHBEZXZfSUFfQnJvYWRfQ1BOSURfRU4lMjZ1dG1fdGVybSUzZG1vYmlsZSUyNTIwYXBwJTI1MjBkZXZlbG9wbWVudCUyNnV0bV9jb250ZW50JTNkTEMlMjUyME1vYmlsZSUyNTIwQXBwJTI1MjBEZXZlbG9wbWVudA&rlid=ed4b83fc42aa1fc350a1ea0c93294ee9&vqd=4-55739817493933676554154705347248158076&iurl={1}IG=C4706FCF7FFD448FAF1AE445257CC0FA&CID=338B0082B70862541C5E17CBB66A6329&ID=DevEx,5038.1",
-        "snippet": "Simplify how work gets done with Pega's smart, scalable, cost-effective low-code platform. Easily updateappsenterprise-wide to ensureappsperform in th"
-      },
-      {
-        "title": "\u200eMIT-WPU ILIP App - App Store",
-        "url": "https://apps.apple.com/in/app/mit-wpu-ilip/id6760546532",
-        "snippet": "Clicking on a subject shows day-wiseattendancewith the teaching faculty's name and their profile. Semester-wiseAttendance: Presents statistical and gr"
-      },
-      {
-        "title": "mitwpu \u00b7 GitHub Topics \u00b7 GitHub",
-        "url": "https://github.com/topics/mitwpu",
-        "snippet": "GitHub is where people build software. More than 150 million people use GitHub to discover, fork, and contribute to over 420 million projects."
-      },
-      {
-        "title": "LectureLogger | Free College & University Attendance Tracking App",
-        "url": "https://lecturelogger.com/",
-        "snippet": "LectureLogger offers free professor access this semester. Our dynamic QR code check-ins, real-time analytics, andstudentappmakeattendancetracking simp"
-      },
-      {
-        "title": "How To Create Online Attendance App Using MIT App Inventor | Artificial ...",
-        "url": "https://www.youtube.com/watch?v=VVadnwyqVDE",
-        "snippet": "How To Create OnlineAttendanceAppUsing MITAppInventor | Artificial Intelligence Applications. Using thisappyou can takeattendanceof yourstudentsor cla"
-      },
-      {
-        "title": "MIT App Inventor",
-        "url": "https://appinventor.mit.edu/",
-        "snippet": "March 14, 2026 \u2014 This year we celebrated the Pi Day (3/14) by hosting 20 middle- and high-schoolstudentsfrom the greater Boston area participating in "
-      }
-    ]
+    "web": []
   }
 }

@@ -1,5 +1,5 @@
 """
-Project Indolance — Part B: The Global Searcher (The "Present")
+Project CogniGap — Part B: The Global Searcher (The "Present")
 ==============================================================
 API-based search across academic databases, code repositories, and the web.
 Uses free, reliable APIs. Validates all URLs before returning.
@@ -309,7 +309,7 @@ class GlobalScraper:
     # ── Full Pipeline ────────────────────────────────────────────────────
     def scrape_all(self, idea_text="", idea_keywords=None):
         logger.info("=" * 60)
-        logger.info("  INDOLANCE — Part B: Global Searcher — Starting")
+        logger.info("  COGNIGAP — Part B: Global Searcher — Starting")
         logger.info("=" * 60)
         self.global_trends = []
         idea_keywords = idea_keywords or []

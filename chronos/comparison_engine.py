@@ -1,5 +1,5 @@
 """
-Project Indolance — Part C: The Comparison Brain (The "Future")
+Project CogniGap — Part C: The Comparison Brain (The "Future")
 ==============================================================
 Dual-score originality analysis: Local vs Global.
 TF-IDF vectorization, cosine similarity, plagiarism source detection,
@@ -35,7 +35,7 @@ class ComparisonEngine:
 
     def analyze(self, local_reader, global_scraper, user_idea="", user_keywords=None):
         logger.info("=" * 60)
-        logger.info("  INDOLANCE — Part C: Comparison Brain — Analyzing")
+        logger.info("  COGNIGAP — Part C: Comparison Brain — Analyzing")
         logger.info("=" * 60)
 
         user_keywords = user_keywords or []
@@ -524,7 +524,7 @@ class ComparisonEngine:
             ax.text(0.2, 1.08, 'YOUR KEYWORDS', ha='center', fontsize=12, color='#aaaaaa', fontweight='bold')
             ax.text(0.8, 1.08, 'GLOBAL TRENDS', ha='center', fontsize=12, color='#777777', fontweight='bold')
             ax.set_xlim(-0.1, 1.1); ax.set_ylim(-0.1, 1.15); ax.axis('off')
-            ax.set_title('Project Indolance — Connection Map', color='#c8c8c8', fontsize=16, fontweight='bold', pad=20)
+            ax.set_title('Project CogniGap — Connection Map', color='#c8c8c8', fontsize=16, fontweight='bold', pad=20)
             path = os.path.join(STATIC_IMG_DIR, "connection_map.png")
             os.makedirs(os.path.dirname(path), exist_ok=True)
             fig.savefig(path, dpi=150, bbox_inches='tight', facecolor=fig.get_facecolor(), edgecolor='none')

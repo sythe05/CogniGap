@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   Project Indolance — Dashboard JavaScript v2.0
+   Project CogniGap — Dashboard JavaScript v2.0
    Dual-score display + plagiarism sources + API-based search
    ═══════════════════════════════════════════════════════════ */
 

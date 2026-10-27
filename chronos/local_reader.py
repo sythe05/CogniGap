@@ -1,5 +1,5 @@
 """
-Project Indolance — Part A: The Local Reader (The "Past")
+Project CogniGap — Part A: The Local Reader (The "Past")
 ========================================================
 Scans local directories for PDFs, code files, and documents.
 Extracts keywords using regex patterns and frequency analysis.
@@ -219,7 +219,7 @@ class LocalReader:
             list of dict: The complete knowledge base.
         """
         logger.info("═" * 60)
-        logger.info("  INDOLANCE — Part A: Local Reader — Starting Scan")
+        logger.info("  COGNIGAP — Part A: Local Reader — Starting Scan")
         logger.info("═" * 60)
 
         files = self.discover_files()
