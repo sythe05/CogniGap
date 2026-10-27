@@ -30,16 +30,27 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 
-# Pick whichever LLM is configured
+def get_available_llm_providers():
+    """
+    Return all configured LLM providers in priority order.
+    Whichever keys are provided will be tried in sequence (automatic failover).
+    """
+    providers = []
+    # 1. Gemini (free, fast, recommended)
+    if GEMINI_API_KEY and GEMINI_API_KEY.strip() and not GEMINI_API_KEY.startswith("your_"):
+        providers.append(("gemini", GEMINI_API_KEY.strip()))
+    # 2. Groq (ultra-fast Llama-3.3, free tier available)
+    if GROQ_API_KEY and GROQ_API_KEY.strip() and not GROQ_API_KEY.startswith("your_"):
+        providers.append(("groq", GROQ_API_KEY.strip()))
+    # 3. OpenAI (GPT-4o mini)
+    if OPENAI_API_KEY and OPENAI_API_KEY.strip() and not OPENAI_API_KEY.startswith("your_"):
+        providers.append(("openai", OPENAI_API_KEY.strip()))
+    return providers
+
 def get_llm_provider():
-    """Return (provider, key) for the first configured LLM."""
-    if GEMINI_API_KEY:
-        return "gemini", GEMINI_API_KEY
-    if OPENAI_API_KEY:
-        return "openai", OPENAI_API_KEY
-    if GROQ_API_KEY:
-        return "groq", GROQ_API_KEY
-    return None, None
+    """Return (provider, key) for the first configured LLM (backward compatibility)."""
+    providers = get_available_llm_providers()
+    return providers[0] if providers else (None, None)
 
 # ─── Qdrant Settings ────────────────────────────────────────────────────────
 QDRANT_MODE = os.getenv("QDRANT_MODE", "local")          # "local" or "server"

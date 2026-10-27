@@ -102,8 +102,11 @@ NEO4J_USERNAME=neo4j
 NEO4J_PASSWORD=your_neo4j_password
 NEO4J_DATABASE=neo4j
 
-# LLM API (Google Gemini recommended — free tier available)
-GEMINI_API_KEY=your_gemini_api_key
+# LLM APIs (Provide one, two, or all — automatic failover waterfall!)
+# Whichever works, works! Tries Gemini -> Groq -> OpenAI in sequence:
+GEMINI_API_KEY=your_gemini_key
+GROQ_API_KEY=your_groq_key
+OPENAI_API_KEY=your_openai_key
 
 # Optional: GitHub token for higher rate limits
 GITHUB_TOKEN=
