@@ -15,6 +15,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from config import (
     SEMANTIC_SCHOLAR_API, SEMANTIC_SCHOLAR_FIELDS, SEMANTIC_SCHOLAR_LIMIT,
+    SEMANTIC_SCHOLAR_API_KEY,
     CROSSREF_API, CROSSREF_LIMIT,
     GITHUB_SEARCH_API, GITHUB_LIMIT, GITHUB_TOKEN,
     OPENALEX_API, OPENALEX_LIMIT,
@@ -55,9 +56,36 @@ class GlobalScraper:
         results = []
         logger.info(f"  [Semantic Scholar] Searching: '{query}'")
         try:
-            resp = self.session.get(SEMANTIC_SCHOLAR_API, params={
+            headers = {}
+            if SEMANTIC_SCHOLAR_API_KEY:
+                headers["x-api-key"] = SEMANTIC_SCHOLAR_API_KEY
+
+            params = {
                 "query": query, "limit": limit, "fields": SEMANTIC_SCHOLAR_FIELDS
-            }, timeout=15)
+            }
+            resp = self.session.get(
+                SEMANTIC_SCHOLAR_API, params=params, headers=headers, timeout=15
+            )
+            if resp.status_code == 429:
+                retry_after = resp.headers.get("Retry-After", "2")
+                try:
+                    retry_delay = min(max(float(retry_after), 1.0), 5.0)
+                except ValueError:
+                    retry_delay = 2.0
+                logger.warning(
+                    "    Semantic Scholar rate limited the request; retrying once "
+                    f"after {retry_delay:g}s"
+                )
+                time.sleep(retry_delay)
+                resp = self.session.get(
+                    SEMANTIC_SCHOLAR_API, params=params, headers=headers, timeout=15
+                )
+            if resp.status_code == 429:
+                logger.warning(
+                    "    Semantic Scholar rate limit persists; continuing without it. "
+                    "Set SEMANTIC_SCHOLAR_API_KEY for higher request limits."
+                )
+                return results
             resp.raise_for_status()
             data = resp.json()
             for paper in data.get("data", []):

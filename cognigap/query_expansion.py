@@ -21,7 +21,12 @@ from cognigap.config import get_available_llm_providers, get_llm_provider
 
 def _call_gemini(prompt, api_key):
     """Call Google Gemini API with fallback models."""
-    models_to_try = ["gemini-2.0-flash", "gemini-1.5-flash"]
+    models_to_try = [
+        "gemini-2.5-flash",
+        "gemini-flash-latest",
+        "gemini-2.5-flash-lite",
+        "gemini-pro-latest",
+    ]
     last_err = None
     for model in models_to_try:
         try:
@@ -60,17 +65,30 @@ def _call_openai(prompt, api_key):
 
 
 def _call_groq(prompt, api_key):
-    """Call Groq API (ultra-fast Llama-3.3-70b)."""
+    """Call Groq API trying available fast open-weights models."""
+    models_to_try = [
+        "openai/gpt-oss-120b",
+        "openai/gpt-oss-20b",
+        "qwen/qwen3.8-27b",
+    ]
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
-    payload = {
-        "model": "llama-3.3-70b-versatile",
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.3, "max_tokens": 2048,
-    }
-    resp = requests.post(url, json=payload, headers=headers, timeout=25)
-    resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"]
+    last_err = None
+    for model in models_to_try:
+        try:
+            payload = {
+                "model": model,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.3, "max_tokens": 2048,
+            }
+            resp = requests.post(url, json=payload, headers=headers, timeout=25)
+            if resp.status_code == 200:
+                return resp.json()["choices"][0]["message"]["content"]
+            else:
+                last_err = f"HTTP {resp.status_code}: {resp.text[:120]}"
+        except Exception as e:
+            last_err = str(e)
+    raise RuntimeError(f"Groq error: {last_err}")
 
 
 def _call_llm(prompt):

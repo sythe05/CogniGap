@@ -1,9 +1,14 @@
 """
-Project Indolance — Flask Application
-=======================================
+Project CogniGap / Indolance — Unified Flask Application
+=========================================================
 Web dashboard backend with API routes for scan, search, analyze.
-Accepts user ideas, keywords and tags to drive the analysis.
-Provides dual originality scores (local + global) and plagiarism sources.
+Accepts user ideas, keywords, tags and topics to drive the analysis.
+Provides:
+- Dual originality scores (Local + Global) via TF-IDF cosine similarity
+- Blindspot Matrix & GraphRAG concept overlap
+- Plagiarism sources detection
+- Project insights (pros, cons, recommendations)
+- Reference materials (papers, repos, web)
 """
 
 import os, sys, json
@@ -14,6 +19,8 @@ from config import FLASK_HOST, FLASK_PORT, FLASK_DEBUG, DATA_DIR
 from chronos.local_reader import LocalReader
 from chronos.global_scraper import GlobalScraper
 from chronos.comparison_engine import ComparisonEngine
+from cognigap.graphrag_engine import GraphRAGEngine
+from cognigap.data_sources import ArxivSearcher, PatentSearcher, EuropePmcSearcher
 
 app = Flask(__name__)
 
@@ -21,6 +28,10 @@ app = Flask(__name__)
 reader = LocalReader()
 scraper = GlobalScraper()
 engine = ComparisonEngine()
+graphrag_engine = GraphRAGEngine()
+arxiv_searcher = ArxivSearcher()
+patent_searcher = PatentSearcher()
+europe_pmc_searcher = EuropePmcSearcher()
 
 # Store user-provided context
 user_context = {
@@ -85,7 +96,6 @@ def api_scrape():
         tags = data.get("tags", "")
         if tags:
             tag_list = [t.strip() for t in tags.split(",") if t.strip()]
-            # Add tags that aren't already in topics
             existing = set(t.lower() for t in scraper.topics)
             for tag in tag_list:
                 if tag.lower() not in existing:
@@ -94,7 +104,6 @@ def api_scrape():
         # Also add the idea as a search query if present
         idea = data.get("idea", "")
         if idea and len(idea) > 10:
-            # Use first 100 chars of idea as a search query
             idea_query = idea[:100].strip()
             scraper.topics.insert(0, idea_query)
 
@@ -102,7 +111,23 @@ def api_scrape():
         keywords_str = data.get("keywords", "")
         idea_keywords = [k.strip().lower() for k in keywords_str.split(",") if k.strip()] if keywords_str else []
 
+        # Run primary scraping
         trends = scraper.scrape_all(idea_text=idea, idea_keywords=idea_keywords)
+
+        # Also search Europe PMC, ArXiv, and Patents
+        extra_queries = [idea[:80]] if idea else []
+        if scraper.topics:
+            extra_queries.extend(scraper.topics[:2])
+        for q in extra_queries:
+            if q:
+                trends.extend(europe_pmc_searcher.search(q, limit=8))
+                trends.extend(arxiv_searcher.search(q, limit=8))
+                trends.extend(patent_searcher.search(q, limit=8))
+
+        trends = scraper._deduplicate(trends)
+        trends = [e for e in trends if e.get("url")]
+        scraper.global_trends = trends
+        scraper.save_trends()
 
         # Count by source
         source_counts = {}
@@ -123,7 +148,7 @@ def api_scrape():
 
 @app.route("/api/analyze", methods=["POST"])
 def api_analyze():
-    """Run dual comparison analysis: local + global originality + plagiarism sources."""
+    """Run dual comparison analysis: local + global originality + plagiarism sources + GraphRAG."""
     try:
         data = request.get_json(silent=True) or {}
 
@@ -152,6 +177,17 @@ def api_analyze():
             user_idea=idea,
             user_keywords=all_keywords
         )
+
+        # Attach GraphRAG Blindspot Matrix & Overlaps
+        try:
+            graphrag_res = graphrag_engine.process(idea, scraper.global_trends)
+            results["concepts"] = graphrag_res.get("concepts", [])
+            results["overlaps"] = graphrag_res.get("overlaps", [])
+            results["expanded_queries"] = graphrag_res.get("expanded_queries", [])
+        except Exception:
+            results["concepts"] = []
+            results["overlaps"] = []
+
         return jsonify({"success": True, "results": results})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
@@ -198,7 +234,7 @@ def api_status():
 
 if __name__ == "__main__":
     print("\n" + "=" * 60)
-    print("  PROJECT INDOLANCE — The Research Intelligence Engine")
+    print("  PROJECT COGNIGAP — The Research Intelligence Engine")
     print("  Dashboard: http://localhost:5000")
     print("=" * 60 + "\n")
     app.run(host=FLASK_HOST, port=FLASK_PORT, debug=FLASK_DEBUG)

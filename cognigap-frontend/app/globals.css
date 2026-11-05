@@ -46,3 +46,41 @@ button:hover:not(:disabled){transform:translateY(-2px)}button:disabled{opacity:.
 .stack{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:50px}.stack span{border:1px solid var(--bd);padding:7px 16px;border-radius:99px;font-size:13px;color:var(--mu);background:var(--card)}
 footer{text-align:center;color:var(--mu);font-size:12px;margin-top:40px}
 @media(max-width:860px){.grid3,.grid2g,.hgrid{grid-template-columns:1fr}.links{display:none}.bar{grid-template-columns:90px 1fr 40px}}
+
+/* ─── Added styles for Indolance & CogniGap Unified Dashboard ─── */
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.input-field{display:flex;flex-direction:column;gap:6px}
+.input-field label{font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.05em}
+.input-field input{background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;color:var(--tx);font:inherit;font-size:14px;outline:none;transition:border-color .2s}
+.input-field input:focus{border-color:var(--ac)}
+.dual-score-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.score-box{text-align:center;background:rgba(255,255,255,.02);border:1px solid var(--bd);border-radius:18px;padding:20px}
+.score-box h3{font-size:16px;color:var(--tx);margin-bottom:4px}
+.score-box p.sub{font-size:12px;color:var(--mu);margin-bottom:12px}
+.score-meta{display:flex;justify-content:space-around;margin-top:14px;padding-top:12px;border-top:1px solid var(--bd);font-size:12px;color:var(--mu)}
+.score-meta b{color:var(--tx);display:block;font-size:15px}
+.status-pills{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:16px 0}
+.status-pill{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:99px;font-size:13px;border:1px solid var(--bd);background:var(--card)}
+.status-pill.red{border-color:rgba(239,68,68,.4);color:#f87171}
+.status-pill.amber{border-color:rgba(245,158,11,.4);color:#fbbf24}
+.status-pill.green{border-color:rgba(34,197,94,.4);color:#4ade80}
+.section-title{font-size:20px;font-weight:700;margin:28px 0 12px;display:flex;align-items:center;gap:10px;color:var(--tx)}
+.section-title span.badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px;background:rgba(124,92,255,.2);color:var(--ac2);text-transform:uppercase}
+.insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.insight-col{background:rgba(255,255,255,.02);border:1px solid var(--bd);border-radius:14px;padding:16px}
+.insight-col h4{display:flex;align-items:center;gap:8px;font-size:14px;margin-bottom:10px}
+.insight-col ul{list-style:none;padding:0;margin:0}
+.insight-col li{font-size:13px;color:var(--tx);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.45}
+.insight-col li:last-child{border-bottom:none}
+.recommendation-box{margin-top:14px;padding:14px 18px;border-radius:12px;background:rgba(124,92,255,.08);border:1px solid rgba(124,92,255,.3);font-size:13px;line-height:1.55}
+.recommendation-box b{color:var(--ac2)}
+.ref-list{display:flex;flex-direction:column;gap:10px}
+.ref-item{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:12px;border:1px solid var(--bd);background:rgba(255,255,255,.015);text-decoration:none;color:var(--tx);transition:background .2s,border-color .2s}
+.ref-item:hover{background:rgba(124,92,255,.08);border-color:var(--ac)}
+.ref-item .ref-header{display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.ref-item .ref-title{font-weight:600;font-size:14px;color:#fff}
+.ref-item .ref-snip{font-size:12px;color:var(--mu);line-height:1.4}
+.plag-item{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:12px;border:1px solid var(--bd);background:rgba(255,255,255,.02);margin-bottom:10px}
+.plag-top{display:flex;justify-content:space-between;align-items:center}
+.plag-pct{font-weight:700;font-size:15px}
+@media(max-width:768px){.input-grid,.dual-score-row,.insights-grid{grid-template-columns:1fr}}

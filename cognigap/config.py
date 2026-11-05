@@ -34,14 +34,15 @@ def get_available_llm_providers():
     """
     Return all configured LLM providers in priority order.
     Whichever keys are provided will be tried in sequence (automatic failover).
+    Groq is checked first for high-speed response.
     """
     providers = []
-    # 1. Gemini (free, fast, recommended)
-    if GEMINI_API_KEY and GEMINI_API_KEY.strip() and not GEMINI_API_KEY.startswith("your_"):
-        providers.append(("gemini", GEMINI_API_KEY.strip()))
-    # 2. Groq (ultra-fast Llama-3.3, free tier available)
+    # 1. Groq (extremely fast open-weights models: openai/gpt-oss-120b, qwen/qwen3.8-27b)
     if GROQ_API_KEY and GROQ_API_KEY.strip() and not GROQ_API_KEY.startswith("your_"):
         providers.append(("groq", GROQ_API_KEY.strip()))
+    # 2. Gemini (free, recommended fallback)
+    if GEMINI_API_KEY and GEMINI_API_KEY.strip() and not GEMINI_API_KEY.startswith("your_"):
+        providers.append(("gemini", GEMINI_API_KEY.strip()))
     # 3. OpenAI (GPT-4o mini)
     if OPENAI_API_KEY and OPENAI_API_KEY.strip() and not OPENAI_API_KEY.startswith("your_"):
         providers.append(("openai", OPENAI_API_KEY.strip()))
@@ -104,6 +105,7 @@ DOMAIN_KEYWORD_PATTERNS = [
 SEMANTIC_SCHOLAR_API = "https://api.semanticscholar.org/graph/v1/paper/search"
 SEMANTIC_SCHOLAR_FIELDS = "title,abstract,url,year,citationCount,externalIds"
 SEMANTIC_SCHOLAR_LIMIT = 15
+SEMANTIC_SCHOLAR_API_KEY = os.getenv("SEMANTIC_SCHOLAR_API_KEY", "").strip()
 
 # CrossRef
 CROSSREF_API = "https://api.crossref.org/works"
@@ -122,7 +124,7 @@ OPENALEX_LIMIT = 15
 ARXIV_API = "http://export.arxiv.org/api/query"
 ARXIV_LIMIT = 15
 
-# PQAI — Patent search (new for CogniGap)
+# PQAI — primary patent search, with Google Patents as fallback
 PQAI_API = "https://api.pqai.org/search/102"
 PQAI_LIMIT = 10
 
@@ -133,11 +135,11 @@ API_DELAY_MAX = 1.5
 API_USER_AGENT = "CogniGap/1.0 (AI-Powered Novelty Detection; Capstone 2026-27)"
 
 # ─── Part C: Comparison Engine Settings ─────────────────────────────────────
-LOCAL_SIMILARITY_HIGH = 0.6
-LOCAL_SIMILARITY_MEDIUM = 0.25
-GLOBAL_SIMILARITY_HIGH = 0.5
-GLOBAL_SIMILARITY_MEDIUM = 0.2
-PLAGIARISM_SOURCE_THRESHOLD = 0.15
+LOCAL_SIMILARITY_HIGH = 0.35
+LOCAL_SIMILARITY_MEDIUM = 0.18
+GLOBAL_SIMILARITY_HIGH = 0.30
+GLOBAL_SIMILARITY_MEDIUM = 0.18
+PLAGIARISM_SOURCE_THRESHOLD = 0.14
 TOP_GAP_SUGGESTIONS = 10
 
 # ─── FastAPI Settings ────────────────────────────────────────────────────────

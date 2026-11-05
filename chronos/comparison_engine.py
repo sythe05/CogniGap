@@ -154,7 +154,12 @@ class ComparisonEngine:
         similar_files.sort(key=lambda x: x["similarity"], reverse=True)
         max_sim = float(np.max(similarities)) if len(similarities) > 0 else 0
         avg_sim = float(np.mean(similarities)) if len(similarities) > 0 else 0
-        score = round((1 - avg_sim) * 100, 1)
+        if len(similarities) > 0 and max_sim > 0:
+            effective_local = 0.6 * max_sim + 0.4 * avg_sim
+            overlap_pct = min(95.0, (effective_local / 0.35) * 80.0)
+            score = round(max(5.0, 100.0 - overlap_pct), 1)
+        else:
+            score = 100.0
         logger.info(f"    Compared against {len(local_docs)} files, score={score}%")
         return {"score": score, "max_sim": round(max_sim, 4), "avg_sim": round(avg_sim, 4),
                 "similar_files": similar_files[:10], "file_count": len(local_docs)}
@@ -215,7 +220,15 @@ class ComparisonEngine:
         max_sim = float(np.max(similarities)) if len(similarities) > 0 else 0
         top_sims = sorted(similarities, reverse=True)[:min(10, len(similarities))]
         weighted_avg = float(np.mean(top_sims)) if top_sims else 0
-        score = round(max(0, min(100, (1 - weighted_avg) * 100)), 1)
+        # Calibrated text novelty scale: in TF-IDF cosine similarity, 0.35+ represents near-identical projects
+        if top_sims and max_sim > 0:
+            effective_match = 0.45 * max_sim + 0.55 * weighted_avg
+            base_overlap = min(92.0, (effective_match / 0.35) * 80.0)
+            crowd_penalty = min(15.0, len(plagiarism_sources) * 1.2)
+            total_overlap = min(96.0, max(4.0, base_overlap + crowd_penalty))
+            score = round(100.0 - total_overlap, 1)
+        else:
+            score = 100.0
 
         status_counts = {
             "already_exists": sum(1 for i in similar_items if i["status"] == "Already Exists"),

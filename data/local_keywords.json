@@ -1,5 +1,5 @@
 {
-  "scan_timestamp": "2026-09-22T16:05:30.269717",
+  "scan_timestamp": "2026-11-06T02:48:57.513425",
   "scan_directories": [
     "C:\\Users\\japika\\indolance\\sample_files"
   ],
@@ -93,6 +93,12 @@
         {
           "keyword": "Computer Vision",
           "pattern": "computer\\s*vision",
+          "count": 1,
+          "type": "domain"
+        },
+        {
+          "keyword": "rag",
+          "pattern": "retrieval[\\s-]*augmented\\s*generation|RAG",
           "count": 1,
           "type": "domain"
         },
@@ -274,7 +280,7 @@
         }
       ],
       "snippet": "Sample Research Notes IoT Edge Computing Security Author Research Team Date 2025-03-15 Topic Secure Edge Computing for IoT Networks Abstract This research explores the intersection of edge computing and IoT security focusing on implementing hardware-based security modules ATECC608A TPM 2.0 for cr...",
-      "scanned_at": "2026-09-22T16:05:30.248992"
+      "scanned_at": "2026-11-06T02:48:57.496793"
     },
     {
       "source_file": "C:\\Users\\japika\\indolance\\sample_files\\sample_code.py",
@@ -341,6 +347,12 @@
           "keyword": "TensorFlow",
           "pattern": "TensorFlow|PyTorch|Keras",
           "count": 2,
+          "type": "domain"
+        },
+        {
+          "keyword": "rag",
+          "pattern": "retrieval[\\s-]*augmented\\s*generation|RAG",
+          "count": 1,
           "type": "domain"
         },
         {
@@ -491,7 +503,7 @@
         }
       ],
       "snippet": "Sample Research Project IoT Network Security Monitor A proof-of-concept embedded system that uses an ATECC608A cryptographic chip for secure key storage combined with PCAP-based network traffic analysis for intrusion detection. This system monitors IEEE 802.11 Wi-Fi traffic and uses machine learn...",
-      "scanned_at": "2026-09-22T16:05:30.269717"
+      "scanned_at": "2026-11-06T02:48:57.513425"
     }
   ]
 }

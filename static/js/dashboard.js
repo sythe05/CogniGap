@@ -158,6 +158,7 @@ function renderResults(r) {
 
     // Plagiarism sources
     renderPlagiarismSources(r.plagiarism_sources);
+    if (r.concepts) { renderBlindspotMatrix(r.concepts); }
 
     // Local file matches
     renderLocalFiles(r.local_similar_files);
@@ -555,4 +556,50 @@ function esc(s) {
     const d = document.createElement('div');
     d.textContent = s;
     return d.innerHTML;
+}
+
+// ── Blindspot Matrix ────────────────────────────────────────
+function renderBlindspotMatrix(concepts) {
+    const c = document.getElementById('blindspotContent');
+    if (!c) return;
+    if (!concepts || concepts.length === 0) {
+        c.innerHTML = '<div class="empty-state">No concept data available</div>';
+        return;
+    }
+    let html = 
+    <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px;">
+        <thead>
+            <tr style="border-bottom: 1px solid #333; color: #888;">
+                <th style="text-align: left; padding: 10px;">Architectural Concept</th>
+                <th style="text-align: center; padding: 10px;">Papers</th>
+                <th style="text-align: center; padding: 10px;">Patents</th>
+                <th style="text-align: center; padding: 10px;">Code</th>
+            </tr>
+        </thead>
+        <tbody>
+    ;
+    concepts.forEach(row => {
+        const pPct = Math.round((row.papers || 0) * 100);
+        const patPct = Math.round((row.patents || 0) * 100);
+        const cPct = Math.round((row.code || 0) * 100);
+        const getBg = v => hsla(, 70%, 45%, 0.25);
+        const getClr = v => hsl(, 80%, 65%);
+
+        html += 
+        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 12px 10px; font-weight: 500;"> + row.name + </td>
+            <td style="text-align: center; padding: 10px;">
+                <span style="background:  + getBg(pPct) + ; color:  + getClr(pPct) + ; padding: 4px 10px; border-radius: 6px; font-weight: 600;"> + pPct + %</span>
+            </td>
+            <td style="text-align: center; padding: 10px;">
+                <span style="background:  + getBg(patPct) + ; color:  + getClr(patPct) + ; padding: 4px 10px; border-radius: 6px; font-weight: 600;"> + patPct + %</span>
+            </td>
+            <td style="text-align: center; padding: 10px;">
+                <span style="background:  + getBg(cPct) + ; color:  + getClr(cPct) + ; padding: 4px 10px; border-radius: 6px; font-weight: 600;"> + cPct + %</span>
+            </td>
+        </tr>
+        ;
+    });
+    html += </tbody></table>;
+    c.innerHTML = html;
 }

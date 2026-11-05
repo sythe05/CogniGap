@@ -74,21 +74,21 @@ class GraphRAGEngine:
 
         # ── Step 6: Compute Originality Score ───────────────────────
         score = self._compute_originality_score(concept_overlaps, overlaps)
+        assessment_confidence = self._assessment_confidence(search_results, overlaps)
 
         # ── Step 7: Find Gaps ───────────────────────────────────────
         gaps = self._compute_gaps(concepts, concept_overlaps, identified_gaps)
-
-        # ── Step 8: Baseline Comparison ─────────────────────────────
-        baselines = self._compute_baselines(idea_text, search_results, score)
 
         # ── Build final result ──────────────────────────────────────
         self.results = {
             "expanded_queries": expanded_queries,
             "originality_score": score,
+            "assessment_confidence": assessment_confidence,
+            "evidence_count": len(search_results),
             "concepts": concept_overlaps,
             "overlaps": overlaps,
             "gaps": gaps,
-            "baselines": baselines,
+            "baselines": None,
             "formal_summary": expansion.get("formal_summary", ""),
             "timestamp": datetime.now().isoformat(),
         }
@@ -209,30 +209,10 @@ class GraphRAGEngine:
     def _compute_concept_overlaps(self, concepts, search_results):
         """
         Compute per-concept overlap scores across papers, patents, and code.
-        Tries Neo4j first, falls back to text-based computation.
+        Use only this analysis run's results; Neo4j also contains records from
+        previous analyses and cannot provide a query-scoped comparison here.
         """
         logger.info("  ── Computing Concept Overlaps ──")
-
-        # Try graph-based computation first
-        try:
-            graph_overlaps = graph.get_concept_overlap_subgraph(concepts)
-            if graph_overlaps and any(
-                v["paper_count"] + v["patent_count"] + v["repo_count"] > 0
-                for v in graph_overlaps.values()
-            ):
-                return [
-                    {
-                        "name": concept,
-                        "papers": graph_overlaps.get(concept.lower(), {}).get("papers", 0),
-                        "patents": graph_overlaps.get(concept.lower(), {}).get("patents", 0),
-                        "code": graph_overlaps.get(concept.lower(), {}).get("code", 0),
-                    }
-                    for concept in concepts
-                ]
-        except Exception as e:
-            logger.debug(f"  Graph overlap query failed, using text fallback: {e}")
-
-        # Fallback: text-based overlap computation
         return self._text_based_concept_overlaps(concepts, search_results)
 
     def _text_based_concept_overlaps(self, concepts, search_results):
@@ -259,18 +239,8 @@ class GraphRAGEngine:
         return concept_data
 
     def _find_overlapping_works(self, concepts, search_results):
-        """Find works that overlap with the project's concepts."""
+        """Find current-run works that overlap with the project's concepts."""
         logger.info("  ── Finding Overlapping Works ──")
-
-        # Try graph-based first
-        try:
-            graph_overlaps = graph.get_overlapping_works(concepts)
-            if graph_overlaps:
-                return graph_overlaps
-        except Exception as e:
-            logger.debug(f"  Graph overlap query failed: {e}")
-
-        # Fallback: text-based
         overlaps = []
         for item in search_results:
             sim = self._item_overall_similarity(concepts, item)
@@ -303,27 +273,42 @@ class GraphRAGEngine:
         return overlaps[:30]
 
     def _compute_originality_score(self, concept_overlaps, overlaps):
-        """Compute overall originality score (0-100)."""
-        if not concept_overlaps:
-            return 85  # Default high if no concepts
+        """Estimate originality from positive matches; return None without evidence."""
+        if not concept_overlaps or not overlaps:
+            return None
 
-        # Average overlap across all concepts and sources
-        total_overlap = 0
-        count = 0
-        for concept in concept_overlaps:
-            total_overlap += concept.get("papers", 0)
-            total_overlap += concept.get("patents", 0)
-            total_overlap += concept.get("code", 0)
-            count += 3
+        per_concept_matches = [
+            max(
+                float(concept.get("papers", 0)),
+                float(concept.get("patents", 0)),
+                float(concept.get("code", 0)),
+            )
+            for concept in concept_overlaps
+        ]
+        concept_match = sum(per_concept_matches) / len(per_concept_matches)
 
-        avg_overlap = total_overlap / max(count, 1)
+        strongest_matches = sorted(
+            (float(item.get("similarity", 0)) for item in overlaps),
+            reverse=True,
+        )[:5]
+        work_match = sum(strongest_matches) / len(strongest_matches)
 
-        # Factor in number of high-similarity overlaps
-        high_overlaps = sum(1 for o in overlaps if o.get("similarity", 0) > 0.5)
-        overlap_penalty = min(20, high_overlaps * 3)
+        # An absent source is not evidence of originality. Compare the best
+        # available source for each concept and the strongest current-run works.
+        match_strength = 0.4 * concept_match + 0.6 * work_match
+        return max(0, min(100, round((1 - match_strength) * 100)))
 
-        score = max(0, min(100, round((1 - avg_overlap) * 100 - overlap_penalty)))
-        return score
+    @staticmethod
+    def _assessment_confidence(search_results, overlaps):
+        """Describe search evidence volume; this is not a calibrated probability."""
+        source_count = len({
+            item.get("source") for item in search_results if item.get("source")
+        })
+        if len(search_results) >= 20 and len(overlaps) >= 5 and source_count >= 3:
+            return "high"
+        if len(search_results) >= 5 and len(overlaps) >= 2 and source_count >= 2:
+            return "medium"
+        return "low"
 
     def _compute_gaps(self, concepts, concept_overlaps, llm_gaps):
         """Identify uncharted territory."""
@@ -342,47 +327,6 @@ class GraphRAGEngine:
                     gaps.append(gap_text)
 
         return gaps[:8]
-
-    def _compute_baselines(self, idea_text, search_results, graphrag_score):
-        """
-        Compute baseline comparison scores:
-        - Keyword search accuracy
-        - Naive RAG accuracy
-        - CogniGap/GraphRAG accuracy
-        """
-        from sklearn.feature_extraction.text import TfidfVectorizer
-        from sklearn.metrics.pairwise import cosine_similarity
-        import numpy as np
-
-        if not search_results:
-            return {"keyword": 30, "naive_rag": 45, "cognigap": graphrag_score}
-
-        # Keyword baseline: simple TF-IDF with unigrams
-        docs = [f"{r.get('title', '')} {r.get('snippet', '')}" for r in search_results[:50]]
-        all_docs = [idea_text] + docs
-
-        try:
-            # Keyword search (unigram TF-IDF)
-            vec_kw = TfidfVectorizer(max_features=200, stop_words="english", ngram_range=(1, 1))
-            mat_kw = vec_kw.fit_transform(all_docs)
-            kw_sims = cosine_similarity(mat_kw[0:1], mat_kw[1:]).flatten()
-            kw_top = sorted(kw_sims, reverse=True)[:10]
-            kw_score = round(max(20, min(60, (1 - float(np.mean(kw_top))) * 100)))
-
-            # Naive RAG (bigram TF-IDF — slightly better)
-            vec_rag = TfidfVectorizer(max_features=500, stop_words="english", ngram_range=(1, 2))
-            mat_rag = vec_rag.fit_transform(all_docs)
-            rag_sims = cosine_similarity(mat_rag[0:1], mat_rag[1:]).flatten()
-            rag_top = sorted(rag_sims, reverse=True)[:10]
-            rag_score = round(max(35, min(75, (1 - float(np.mean(rag_top))) * 100)))
-
-            return {
-                "keyword": kw_score,
-                "naive_rag": rag_score,
-                "cognigap": graphrag_score,
-            }
-        except Exception:
-            return {"keyword": 35, "naive_rag": 52, "cognigap": graphrag_score}
 
     # ═══════════════════════════════════════════════════════════
     # Similarity Helpers

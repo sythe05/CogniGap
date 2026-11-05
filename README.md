@@ -22,16 +22,16 @@
    - **Qdrant Vector Database**: Stores high-dimensional dense embeddings for semantic similarity (runs in local embedded mode or client-server mode).
 
 4. **GraphRAG Processing Engine**:
-   - Executes multi-hop queries across the Knowledge Graph rather than flat keyword matches.
-   - Extracts subgraphs connecting the proposed idea's concepts with existing works.
-   - Computes granular overlap scores per concept across Papers, Patents, and Code.
+   - Ingests findings into the Knowledge Graph and computes query-scoped overlap from the current search results.
+   - Compares project concepts with retrieved papers, patents, and code.
+   - Reports a heuristic originality estimate only when relevant matches are found; it is not a calibrated accuracy measure or a legal novelty determination.
 
 5. **Interactive Web Dashboard & Blindspot Matrix**:
    - Next.js (React 18) responsive dark-mode dashboard.
    - Live originality score gauge.
    - Interactive Blindspot Matrix heat grid (Papers vs. Patents vs. Code).
    - Dynamic Knowledge Graph visualization (ArXiv, Patents, GitHub nodes).
-   - Baseline accuracy comparison (Keyword Search vs. Naive RAG vs. CogniGap GraphRAG).
+   - Search evidence and scoring limitations, with no unvalidated baseline accuracy claims.
 
 6. **Full Backward Compatibility**:
    - Retains all Indolance local scanning, TF-IDF dual-score analysis, plagiarism detection, and the legacy Flask dashboard on port 5000.
@@ -110,7 +110,14 @@ OPENAI_API_KEY=your_openai_key
 
 # Optional: GitHub token for higher rate limits
 GITHUB_TOKEN=
+
+# Optional: Semantic Scholar key for higher API rate limits
+SEMANTIC_SCHOLAR_API_KEY=
 ```
+
+Groq requests use the currently recommended `openai/gpt-oss-120b` model. Semantic Scholar
+retries a rate-limited request once; if the limit persists, analysis continues with the
+other academic sources. Patent search falls back to Google Patents when PQAI is unavailable.
 
 ### 2. Install Python Dependencies
 ```bash
@@ -182,10 +189,3 @@ indolance/
 ```
 
 ---
-
-## 👥 MIT-WPU Capstone Team — Group 24
-- **Guide**: Dr. Pranali Dahiwal
-- **Japkeerat Kaur** (1032240166) — End-to-End System Architecture, GraphRAG Framework, Neo4j Schema
-- **Ameya Ingale** (1032240160) — FastAPI Backend Layer, Qdrant Vector Store, Baseline Evaluation Strategy
-- **Vani Sharma** (1032233615) — LLM Query Expansion Engine, Semantic Scholar & ArXiv API Ingestion
-- **Yash Biraris** (1032233650) — CogniGap Next.js Web Dashboard, Blindspot Matrix, GitHub API Ingestion

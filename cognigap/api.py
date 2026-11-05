@@ -1,10 +1,14 @@
 """
-CogniGap — FastAPI Backend
-============================
-REST API backend that serves the Next.js frontend.
-Implements the /analyze endpoint and integrates all CogniGap modules.
-
-Also keeps the legacy Flask dashboard running on port 5000 for backward compatibility.
+CogniGap — Unified FastAPI Backend
+====================================
+REST API backend serving both the Next.js frontend (port 8000) and the
+legacy Indolance dashboard (port 5000).
+Integrates:
+- LLM Query Expansion (Gemini -> Groq -> OpenAI waterfall)
+- Multi-domain search (Europe PMC, ArXiv, Google Patents, CrossRef, OpenAlex, GitHub, Web)
+- Neo4j Knowledge Graph & Qdrant Vector Store
+- GraphRAG Processing Engine (Blindspot Matrix, concept overlaps)
+- Comparison Engine (Local & Global TF-IDF cosine similarity, plagiarism detector, insights, references, gaps)
 """
 
 import os
@@ -26,7 +30,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from cognigap.config import FASTAPI_HOST, FASTAPI_PORT, DATA_DIR
 from cognigap.graphrag_engine import GraphRAGEngine
 from cognigap.query_expansion import expand_query
-from cognigap.data_sources import ArxivSearcher, PatentSearcher, rate_limit
+from cognigap.data_sources import ArxivSearcher, PatentSearcher, EuropePmcSearcher, rate_limit
 from cognigap import neo4j_graph as graph
 from chronos.local_reader import LocalReader
 from chronos.global_scraper import GlobalScraper
@@ -42,15 +46,15 @@ from chronos.utils import logger
 async def lifespan(app: FastAPI):
     """Initialize services on startup, clean up on shutdown."""
     logger.info("═" * 60)
-    logger.info("  COGNIGAP — Starting FastAPI Backend")
+    logger.info("  COGNIGAP — Starting Unified FastAPI Backend")
     logger.info("═" * 60)
 
-    # Initialize Neo4j
+    # Initialize Neo4j (non-blocking if not running yet)
     try:
         graph.initialize_graph()
         logger.info("  ✓ Neo4j connected")
     except Exception as e:
-        logger.warning(f"  ✗ Neo4j not available: {e}")
+        logger.info(f"  Note: Neo4j local server not active yet ({e}). GraphRAG will operate in in-memory mode.")
 
     yield
 
@@ -69,14 +73,14 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="CogniGap API",
     description="AI-Powered Project Novelty and Overlap Detection Engine",
-    version="1.0.0",
+    version="2.0.0",
     lifespan=lifespan,
 )
 
-# CORS — allow the Next.js frontend to call us
+# CORS — allow frontend requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, restrict to your frontend URL
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -89,6 +93,7 @@ comparison_engine = ComparisonEngine()
 graphrag_engine = GraphRAGEngine()
 arxiv_searcher = ArxivSearcher()
 patent_searcher = PatentSearcher()
+europe_pmc_searcher = EuropePmcSearcher()
 
 
 # ═══════════════════════════════════════════════════════════
@@ -97,6 +102,9 @@ patent_searcher = PatentSearcher()
 
 class AnalyzeRequest(BaseModel):
     idea: str
+    keywords: str = ""
+    tags: str = ""
+    topics: str = ""
 
 
 class ScanRequest(BaseModel):
@@ -107,84 +115,159 @@ class ScanRequest(BaseModel):
 
 
 # ═══════════════════════════════════════════════════════════
-# CogniGap API Endpoints (for Next.js frontend)
+# CogniGap Unified Endpoint
 # ═══════════════════════════════════════════════════════════
 
 @app.post("/analyze")
 async def analyze(req: AnalyzeRequest):
     """
-    Main CogniGap endpoint — the full pipeline:
-    1. LLM Query Expansion
-    2. Multi-domain search (ArXiv, Semantic Scholar, GitHub, Patents, etc.)
-    3. Knowledge Graph ingestion
-    4. GraphRAG reasoning
-    5. Blindspot Matrix generation
-
-    Returns the JSON expected by the CogniGap frontend.
+    Unified CogniGap & Indolance Analysis Pipeline:
+    1. LLM Query Expansion (formal technical queries & concepts)
+    2. Multi-domain search (Europe PMC, ArXiv, Google Patents, CrossRef, OpenAlex, GitHub, Web)
+    3. Local file scanning (Comparison with user's local projects)
+    4. Indolance Comparison Engine (Dual local/global TF-IDF originality scores, plagiarism sources, insights, references)
+    5. GraphRAG Processing Engine (Concept overlap, Blindspot Matrix, Knowledge Graph nodes)
+    6. Returns unified JSON supporting both modern Next.js and Flask dashboards.
     """
     idea = req.idea.strip()
     if not idea or len(idea) < 10:
         raise HTTPException(400, "Please provide a more detailed project description (at least 10 characters)")
 
     logger.info("═" * 60)
-    logger.info("  COGNIGAP — Full Analysis Pipeline")
+    logger.info("  COGNIGAP — Full Unified Analysis Pipeline")
     logger.info("═" * 60)
     logger.info(f"  Idea: {idea[:100]}...")
+
+    # Parse user keywords and tags
+    user_kws = [k.strip().lower() for k in req.keywords.split(",") if k.strip()] if req.keywords else []
+    user_tags = [t.strip().lower() for t in req.tags.split(",") if t.strip()] if req.tags else []
+    all_keywords = list(dict.fromkeys(user_kws + user_tags))
 
     # Step 1: LLM Query Expansion
     expansion = expand_query(idea)
     queries = expansion.get("expanded_queries", [idea[:100]])
+    concepts = expansion.get("concepts", [])
 
     # Step 2: Multi-domain search
     all_results = []
 
-    # Use expanded queries for search
-    for i, query in enumerate(queries[:3]):
-        logger.info(f"  [{i+1}/{min(3, len(queries))}] Searching: '{query[:60]}...'")
+    # If user provided explicit topics, also search them
+    extra_topics = [t.strip() for t in req.topics.split(",") if t.strip()] if req.topics else []
+    search_queries = list(dict.fromkeys(queries[:3] + extra_topics[:2]))
 
-        # Existing Indolance sources
-        all_results.extend(scraper.search_semantic_scholar(query))
-        rate_limit()
-        all_results.extend(scraper.search_crossref(query))
-        rate_limit()
-        all_results.extend(scraper.search_openalex(query))
-        rate_limit()
-        all_results.extend(scraper.search_github(query))
-        rate_limit()
+    for i, query in enumerate(search_queries):
+        logger.info(f"  [{i+1}/{len(search_queries)}] Searching: '{query[:60]}...'")
 
-        # New CogniGap sources
-        all_results.extend(arxiv_searcher.search(query))
+        # Free, reliable academic literature
+        all_results.extend(europe_pmc_searcher.search(query, limit=10))
         rate_limit()
-        all_results.extend(patent_searcher.search(query))
+        all_results.extend(arxiv_searcher.search(query, limit=10))
+        rate_limit()
+        all_results.extend(patent_searcher.search(query, limit=8))
+        rate_limit()
+        all_results.extend(scraper.search_crossref(query, limit=8))
+        rate_limit()
+        all_results.extend(scraper.search_openalex(query, limit=8))
+        rate_limit()
+        all_results.extend(scraper.search_github(query, limit=8))
+        rate_limit()
+        all_results.extend(scraper.search_semantic_scholar(query, limit=8))
         rate_limit()
 
     # Deep GitHub search
-    idea_keywords = [w for w in expansion.get("concepts", []) if " " not in w]
-    github_deep = scraper.search_github_deep(idea, idea_keywords[:6])
+    concept_kws = [w for w in concepts if " " not in w]
+    deep_kws = list(dict.fromkeys(all_keywords + concept_kws))[:6]
+    github_deep = scraper.search_github_deep(idea, deep_kws)
     all_results.extend(github_deep)
 
-    # Web search for the idea
+    # Web search for the idea itself
     if len(idea) > 10:
         all_results.extend(scraper.search_web(idea[:150]))
 
-    # Deduplicate
+    # Deduplicate results
     all_results = scraper._deduplicate(all_results)
     all_results = [e for e in all_results if e.get("url")]
+    logger.info(f"  Total unique search results: {len(all_results)}")
 
-    logger.info(f"  Total search results: {len(all_results)}")
+    # Update global scraper cache
+    scraper.global_trends = all_results
+    scraper.save_trends()
 
-    # Step 3: GraphRAG Processing
-    result = graphrag_engine.process(idea, all_results)
+    # Step 3: Local scanning
+    reader.scan_all()
 
-    # Also run the legacy comparison engine for enriched data
-    try:
-        scraper.global_trends = all_results
-        scraper.save_trends()
-        reader.scan_all()
-    except Exception as e:
-        logger.debug(f"  Legacy save failed: {e}")
+    # Step 4: Indolance Comparison Engine (Computes true TF-IDF Local & Global Originality scores!)
+    comp_results = comparison_engine.analyze(
+        reader, scraper,
+        user_idea=idea,
+        user_keywords=all_keywords
+    )
 
-    return result
+    # Step 5: GraphRAG Processing Engine (Computes Blindspot Matrix & Overlaps)
+    graphrag_results = graphrag_engine.process(idea, all_results)
+
+    # Step 6: Build Unified Response
+    local_score = comp_results.get("local_originality_score", 100.0)
+    comp_global = comp_results.get("global_originality_score", 100.0)
+    graphrag_score = graphrag_results.get("originality_score")
+    if graphrag_score is not None and comp_global is not None:
+        global_score = round(0.5 * comp_global + 0.5 * graphrag_score, 1)
+    else:
+        global_score = comp_global or graphrag_score or 100.0
+
+    # Combine gaps cleanly
+    combined_gaps = []
+    seen_gaps = set()
+    for g in (comp_results.get("gaps", []) + graphrag_results.get("gaps", [])):
+        txt = g if isinstance(g, str) else g.get("topic", "") if isinstance(g, dict) else str(g)
+        if txt and txt.lower() not in seen_gaps:
+            seen_gaps.add(txt.lower())
+            combined_gaps.append(txt)
+
+    response = {
+        # Originality Scores (True TF-IDF math from Indolance ComparisonEngine)
+        "originality_score": global_score,
+        "score": global_score,
+        "local_originality_score": local_score,
+        "global_originality_score": global_score,
+        "local_plagiarism_pct": comp_results.get("local_plagiarism_pct", round(100 - local_score, 1)),
+        "global_plagiarism_pct": comp_results.get("global_plagiarism_pct", round(100 - global_score, 1)),
+        "local_file_count": comp_results.get("local_file_count", 0),
+        "global_result_count": len(all_results),
+        "evidence_count": len(all_results),
+        "assessment_confidence": graphrag_results.get("assessment_confidence", "high"),
+        "status_counts": comp_results.get("status_counts", {
+            "already_exists": 0, "similar_work": 0, "original": 0
+        }),
+
+        # CogniGap GraphRAG & Blindspot Matrix
+        "concepts": graphrag_results.get("concepts", []),
+        "overlaps": graphrag_results.get("overlaps", []),
+        "expanded_queries": graphrag_results.get("expanded_queries", queries),
+        "queries": graphrag_results.get("expanded_queries", queries),
+        "formal_summary": graphrag_results.get("formal_summary", ""),
+        "gaps": combined_gaps[:10],
+
+        # Indolance Core Features
+        "plagiarism_sources": comp_results.get("plagiarism_sources", []),
+        "insights": comp_results.get("insights", {}),
+        "references": comp_results.get("references", {}),
+        "local_similar_files": comp_results.get("local_similar_files", []),
+        "connection_map": comp_results.get("connection_map", ""),
+        "overlap_keywords": comp_results.get("overlap_keywords", []),
+        "total_user_keywords": comp_results.get("total_user_keywords", len(all_keywords)),
+        "total_global_keywords": comp_results.get("total_global_keywords", 0),
+        "overlap_count": comp_results.get("overlap_count", 0),
+
+        # Legacy wrapper for Flask UI compatibility
+        "success": True,
+        "results": comp_results,
+        "timestamp": datetime.now().isoformat(),
+    }
+
+    logger.info(f"  ✓ Analysis complete. Local: {local_score}% | Global: {global_score}% | Concepts: {len(response['concepts'])}")
+    logger.info("═" * 60)
+    return response
 
 
 @app.get("/health")
@@ -214,7 +297,7 @@ async def stats():
 
 
 # ═══════════════════════════════════════════════════════════
-# Legacy Indolance API Endpoints (backward compatibility)
+# Legacy Indolance API Endpoints (Flask dashboard compatibility)
 # ═══════════════════════════════════════════════════════════
 
 @app.post("/api/scan")
@@ -262,24 +345,13 @@ async def api_scrape(req: ScanRequest):
 
 @app.post("/api/analyze")
 async def api_analyze_legacy(req: ScanRequest):
-    """Legacy: Run dual comparison analysis."""
-    try:
-        idea = req.idea
-        kw_str = req.keywords
-        tags_str = req.tags
-        extra_keywords = [k.strip().lower() for k in kw_str.split(",") if k.strip()] if kw_str else []
-        extra_tags = [t.strip().lower() for t in tags_str.split(",") if t.strip()] if tags_str else []
-        all_keywords = list(set(extra_keywords + extra_tags))
-
-        if not reader.knowledge_base:
-            reader.load_knowledge_base()
-        if not scraper.global_trends:
-            scraper.load_trends()
-
-        results = comparison_engine.analyze(reader, scraper, user_idea=idea, user_keywords=all_keywords)
-        return {"success": True, "results": results}
-    except Exception as e:
-        raise HTTPException(500, str(e))
+    """Legacy route: routes through the unified pipeline."""
+    return await analyze(AnalyzeRequest(
+        idea=req.idea,
+        keywords=req.keywords,
+        tags=req.tags,
+        topics=req.topics,
+    ))
 
 
 @app.get("/api/results")
