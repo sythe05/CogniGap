@@ -1,6 +1,6 @@
 # CogniGap: An AI-Powered Project Novelty and Overlap Detection Engine
 
-**CogniGap** (formerly Project Indolance) bridges the informal jargon gap for student and developer proposals by translating casual project descriptions into formal academic and technical ontologies, querying multi-domain repositories (ArXiv, Google Patents / PQAI, GitHub, Semantic Scholar, CrossRef, OpenAlex), constructing an integrated **Neo4j Knowledge Graph** and **Qdrant Vector Store**, and executing **GraphRAG multi-hop reasoning** to project an interactive **Blindspot Matrix**.
+**CogniGap** bridges the informal jargon gap for student and developer proposals by translating casual project descriptions into formal academic and technical ontologies, querying multi-domain repositories (ArXiv, Google Patents / PQAI, GitHub, Semantic Scholar, CrossRef, OpenAlex), constructing an integrated **Neo4j Knowledge Graph** and **Qdrant Vector Store**, and executing **GraphRAG multi-hop reasoning** to project an interactive **Blindspot Matrix**.
 
 ---
 
